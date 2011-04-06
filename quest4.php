@@ -9,7 +9,7 @@
     @mysql_selectdb(SQL_WORLD_DATABASE) or
         die("Bad Database");
         
-    //FIND OUR NPC ID- (QUESTRELATION = GIVER)
+    //FIND OUR NPC ID- (INVOLVED RELATION = TAKER)
     $sql = "SELECT * FROM creature_involvedrelation WHERE quest='$questID'";
     $sql = mysql_query($sql) or die("Bad query: $sql<br/>".mysql_error());
     
