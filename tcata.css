@@ -1,0 +1,40 @@
+.title{
+    background-color:#0000ff;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:14px;
+    font-weight:bold;
+    color:#ffffff;
+}
+.menu{
+    background-color:#c0c0c0;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:16px;
+    color:#000000;
+}
+.submenu{
+    background-color:#c0c0c0;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:12px;
+    color:#000000;
+}
+.resultsborder{
+    border-style:solid;
+    border-width:1px;
+    border-color:#c0c0c0;
+    
+}
+.inputbox{
+    background-color:#c0c0c0;
+    font-family:verdana;
+    font-size:12px;
+    color:#000000;
+}
+
+.tablefont{
+    font-family:verdana;
+    font-size:12px;
+    color:#000000;
+}
