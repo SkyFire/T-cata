@@ -28,16 +28,18 @@
                         echo '
                             <td>
                             modelid'.$i.'<br>
-                            <input size="5" type="text"
+                            <input type="text"
                             name="modelid'.$i.'"
                             value="'.$result['modelid1'].'"</td>';
                     }?>
                 </tr><tr>
-                    <td>mingold<br><input size="5" type="text" name="mingold" value="<?php echo $result['mingold'];?>"></td>
-                    <td>maxgold<br><input size="5" type="text" name="maxgold" value="<?php echo $result['maxgold'];?>"></td>
-                    <td>minlevel<br><input size="5" type="text" name="minlevel" value="<?php echo $result['minlevel'];?>"></td>
-                    <td>maxlevel<br><input size="5" type="text" name="maxlevel" value="<?php echo $result['maxlevel'];?>"></td>
-                </tr>
+                    <td>mingold<br><input type="text" name="mingold" value="<?php echo $result['mingold'];?>"></td>
+                    <td>maxgold<br><input type="text" name="maxgold" value="<?php echo $result['maxgold'];?>"></td>
+                    <td>minlevel<br><input type="text" name="minlevel" value="<?php echo $result['minlevel'];?>"></td>
+                    <td>maxlevel<br><input type="text" name="maxlevel" value="<?php echo $result['maxlevel'];?>"></td>
+                </tr><tr>
+                    <td>Mana_mod<br><input type="text" name="Mana_mod" value="<?php echo $result['Mana_mod'];?>"></td>
+                    <td>Health_mod<br><input type="text" name="Health_mod" value="<?php echo $result['Health_mod'];?>"></td>
                 </tr>
         </table>       
                 
@@ -53,8 +55,24 @@
       <table class="resultsborder">
         
         <tr>
-          <td>loot</td>
-          <td>resistance</td></tr></table></td>
+          <td>loot
+                <table class="resultsborder"><tr>
+                    <td>lootid<br><input type="text" name="lootid" value="<?php echo $result['lootid'];?>"></td></tr><tr>
+                    <td>pickpocketloot<br><input type="text" name="pickpocketloot" value="<?php echo $result['pickpocketloot'];?>"></td></tr><tr>
+                    <td>skinloot<br><input type="text" name="skinloot" value="<?php echo $result['skinloot'];?>"></td></tr><tr>
+                </tr></table>
+          </td>
+          <td>resistance
+                <table class="resultsborder"><tr>
+                    <?php for($i=1;$i<=3;$i++){
+                        echo '
+                            <td>resistance'.$i.'<br><input type="text" name="lootid'.$i.'" value="'.$result['resistance'.$i].'"></td>
+                            <td>resistance'.($i+3).'<br><input type="text" name="lootid'.($i+3).'" value="'.$result['resistance'.($i+3)].'"></td>
+                            </tr><tr>';
+                    }?>
+                </tr></table>
+          
+          </td></tr></table></td>
     <td>
       <table class="resultsborder">
         

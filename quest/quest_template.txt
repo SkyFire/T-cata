@@ -1,5 +1,0 @@
-Wednesday 06th 2011f April 2011 12:27:03 AM - UPDATE quest_template SET ReqItemId1 = '0' WHERE entry=26918
-Wednesday 06th 2011f April 2011 12:27:15 AM - UPDATE quest_template SET ReqSourceCount1 = '1' WHERE entry=26918
-Wednesday 06th 2011f April 2011 12:27:31 AM - UPDATE quest_template SET ReqSourceCount1 = '0' WHERE entry=26918
-Wednesday 06th 2011f April 2011 12:38:48 PM - UPDATE quest_template SET QuestFlags = '0' WHERE entry=14078
-Wednesday 06th 2011f April 2011 08:26:40 PM1

@@ -1,5 +1,6 @@
 <?php
     include('../menu.php');
+    include('../includes/functions.php');
     include('qsessioncheck.php');
     include('loadqtable.php');
 ?>
