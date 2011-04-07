@@ -1,10 +1,4 @@
 <?php
-    include('menu.php');
-    include('functions.php');
-    // if(!isset($_SESSION['questID'])){header('location:quest.php');}
-    $questID = $_REQUEST['id'];
-    include('questmenu.php');
-    include('loadqtable.php');
     
     //CHECK TO SEE IF ANYCHANGES WERE MADE AND UPDATE THEM
     if(isset($_REQUEST['submit'])){
@@ -78,6 +72,7 @@
 <html>
     <head>
         <title><?php echo $result['Title'];?></title>
+         <link rel="stylesheet" href="../scripts/tcata.css" type="text/css">   
     </head>
 <body>
 <center>

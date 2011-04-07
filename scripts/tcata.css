@@ -38,3 +38,12 @@
     font-size:12px;
     color:#000000;
 }
+.qsubmenu{
+    font-family:verdana;
+    font-size:12px;
+    font-variant:small-caps;
+    color:#000000;
+    width:150px;
+    text-align:right;
+    background-color:#ffffc0;
+}

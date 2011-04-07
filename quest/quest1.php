@@ -1,10 +1,5 @@
 <?php
-    include('functions.php');
-    include('menu.php');    
-    // if(!isset($_SESSION['questID'])){header('location:quest.php');}
-    $questID = $_REQUEST['id'];    
-    include('loadqtable.php');
-    
+   
     //ENTRY IS HANDLED DIFFERENTLY
     //IF USER SUBMITTED UPDATE CHANGES
     //ONLY NEED TO UPDATE IF THE INPUTS ARE DIFFERENT FROM ORIGINAL
@@ -47,70 +42,56 @@
         if($_REQUEST['ObjectiveText3']!=$result['ObjectiveText3']){sqlUpdate($questID,'ObjectiveText3',$_REQUEST['ObjectiveText3']);}
         if($_REQUEST['ObjectiveText4']!=$result['ObjectiveText4']){sqlUpdate($questID,'ObjectiveText4',$_REQUEST['ObjectiveText4']);}
         
-        //OPEN TEXT FILE TO SHOW CHANGES
-        $fh = fopen("quest_template.txt","r");
-        ?>
-        <center>
-            <table>
-        <?php
-        while(!feof($fh)){
-            $aline = fgets($fh);
-            echo "<tr><td>".$aline."</td></tr>";
-        }
-        ?>
-            </table>
-        </center>
-        <?php    
-        fclose($fh);
-        
+       
         include('loadqtable.php');
         //unlink("sql.txt");
     }
-    include('questmenu.php');
+    //include('questmenu.php');
 ?>
 <html>
     <head>
         <title><?php echo $result['Title'];?></title>
+         <link rel="stylesheet" href="../scripts/tcata.css" type="text/css">   
     </head>
 <body>
 <center>
 <form method="post">
 <table width="800"><tr>
 <td class="tablefont" >Keys<br/>
-    <table class="resultsborder" size="15"><tr>
+    <table class="resultsborder" size="10"><tr>
         <td class="tablefont" >Entry<sup>1</sup><br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['entry'];?>" name="entry" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['entry'];?>" name="entry" size="10">
         </td>
         <td class="tablefont" >PrevQuestId<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['PrevQuestId'];?>" name="PrevQuestId" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['PrevQuestId'];?>" name="PrevQuestId" size="10">
         </td></tr><tr>
         <td class="tablefont" >ExclusiveGroup<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['ExclusiveGroup'];?>" name="ExclusiveGroup" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['ExclusiveGroup'];?>" name="ExclusiveGroup" size="10">
         </td>
         <td class="tablefont" >NextQuestId<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['NextQuestId'];?>" name="NextQuestId" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['NextQuestId'];?>" name="NextQuestId" size="10">
         </td></tr><tr>
         <td class="tablefont" >NextQuestInChain<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['NextQuestInChain'];?>" name="NextQuestInChain" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['NextQuestInChain'];?>" name="NextQuestInChain" size="10">
         <td class="tablefont" >RewardXPId<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RewXPId'];?>" name="RewXPId" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RewXPId'];?>" name="RewXPId" size="10">
         </td></tr><tr>
         
     </tr></table>
 </td>
 <td class="tablefont"  valign="top">Zone, Sort, Level<br/>
-    <table class="resultsborder" size="15"><tr>
+    <table class="resultsborder" size="10"><tr>
         <td class="tablefont" >RequiredRaces<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredRaces'];?>" name="RequiredRaces" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredRaces'];?>" name="RequiredRaces" size="10">
         </td>
         <td class="tablefont" >SkillOrClassMask<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['SkillOrClassMask'];?>" name="SkillOrClassMask" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['SkillOrClassMask'];?>" name="SkillOrClassMask" size="10">
         </td></tr><tr>
         <td class="tablefont" >MinLevl<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['MinLevel'];?>" name="MinLevel" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['MinLevel'];?>" name="MinLevel" size="10">
         </td>
         <td class="tablefont" >QuestLevel<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['QuestLevel'];?>" name="QuestLevel" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['QuestLevel'];?>" name="QuestLevel" size="10">
         </td>
     </tr></table>
 </td>
@@ -128,23 +109,23 @@
     </tr></table>
 </td>
 <td class="tablefont"  valign="top">Requirements to begin quest<br/>
-    <table class="resultsborder" size="15"><tr>
+    <table class="resultsborder" size="10"><tr>
         <td class="tablefont" >RequiredSkill<br/>
-            <input class="inputbox"  type="text" value="NOT USED" name="RequiredSkill" size="15">
+            <input class="inputbox"  type="text" value="NOT USED" name="RequiredSkill" size="10">
         </td>
         <td class="tablefont" >RequiredSkillValue<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredSkillValue'];?>" name="RequiredSkillValue" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredSkillValue'];?>" name="RequiredSkillValue" size="10">
         </td></tr><tr>
         <td class="tablefont" >ReqMinRepFaction<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMinRepFaction'];?>" name="RequiredMinRepFaction" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMinRepFaction'];?>" name="RequiredMinRepFaction" size="10">
         </td>
         <td class="tablefont" >...Value<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMinRepValue'];?>" name="RequiredMinRepValue" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMinRepValue'];?>" name="RequiredMinRepValue" size="10">
         </td></tr><tr>
         <td class="tablefont" >ReqMaxRepFaction<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMaxRepFaction'];?>" name="RequiredMaxRepFaction" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMaxRepFaction'];?>" name="RequiredMaxRepFaction" size="10">
         <td class="tablefont" >...Value<br/>
-            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMaxRepValue'];?>" name="RequiredMaxRepValue" size="15">
+            <input class="inputbox"  type="text" value="<?php echo $result['RequiredMaxRepValue'];?>" name="RequiredMaxRepValue" size="10">
         </td>        
     </tr></table>
 </td>
@@ -174,21 +155,21 @@
             <input class="inputbox"  type="text" value="<?php echo $result['Title'];?>" name="Title" size="43">
         </td></tr><tr>
         <td class="tablefont" >Details<br/>
-            <textarea class="inputbox"   rows="7" cols="40" name="Details"><?php echo $result['Details'];?></textarea>
+            <textarea class="inputbox"   rows="7" cols="30" name="Details"><?php echo $result['Details'];?></textarea>
         </td>
         <td class="tablefont" >Objectives<br/>
-            <textarea class="inputbox"   rows="7" cols="40" name="Objectives"><?php echo $result['Objectives'];?></textarea>
+            <textarea class="inputbox"   rows="7" cols="30" name="Objectives"><?php echo $result['Objectives'];?></textarea>
         </td>
         <td class="tablefont" >EndText<br/>
-            <textarea class="inputbox"   rows="4" cols="40" name="EndText"><?php echo $result['EndText'];?></textarea><br/>
+            <textarea class="inputbox"   rows="4" cols="30" name="EndText"><?php echo $result['EndText'];?></textarea><br/>
             CompletedText<br/>
-            <input class="inputbox"  type="text" name="CompletedText" size="50" value="<?php echo $result['CompletedText'];?>">
+            <input class="inputbox"  type="text" name="CompletedText" size="35" value="<?php echo $result['CompletedText'];?>">
         </td></tr><tr>
         <td class="tablefont" >OfferRewardText<br/>
-            <textarea class="inputbox"   rows="7" cols="40" name="OfferRewardText"><?php echo $result['OfferRewardText'];?></textarea>
+            <textarea class="inputbox"   rows="7" cols="30" name="OfferRewardText"><?php echo $result['OfferRewardText'];?></textarea>
         </td>
         <td class="tablefont" >RequestItemsText<br/>
-            <textarea class="inputbox"   rows="7" cols="40" name="RequestItemsText"><?php echo $result['RequestItemsText'];?></textarea>
+            <textarea class="inputbox"   rows="7" cols="30" name="RequestItemsText"><?php echo $result['RequestItemsText'];?></textarea>
         </td>
         <td class="tablefont"  align="center">
             ObjectiveText1<br/>

@@ -6,7 +6,7 @@ function sqlUpdate($Entry,$FieldName,$UserValue){
         
         //SAVE TO A TEXT FILE FOR DISPLAY CHANGES
         $fh=fopen("quest_template.txt","a+");
-        fwrite($fh,date("l dS of F Y h:i:s A")." - UPDATE quest_template SET $FieldName = '$UserValue' WHERE entry=$Entry"."\n");
+        fwrite($fh,date("l dS of F Y h:i:s A").$sql."\n");
         fclose($fh);
     }
     

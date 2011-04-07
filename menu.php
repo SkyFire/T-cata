@@ -1,10 +1,10 @@
 <?php
-    include('config.php');
+    include('includes/config.php');
     include('language/en.php');
 ?>
 <html>
     <head>
-        <link rel="stylesheet" href="tcata.css" type="text/css">   
+        <link rel="stylesheet" href="scripts/tcata.css" type="text/css">        
     </head>
     <body>
         <center>
@@ -15,9 +15,9 @@
             <P/>
             <span class="menu">
             &nbsp;&nbsp;
-                <a href="quest.php">QUEST</a>
+                <a href="<?php echo SITE_ROOT;?>quest/">QUEST</a>
                 &nbsp;|&nbsp;
-                CREATURE
+                <a href="<?php echo SITE_ROOT;?>creature/">CREATURE</a>
                 &nbsp;|&nbsp;
                 GAME OBJECT
                 &nbsp;|&nbsp;

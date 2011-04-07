@@ -1,7 +1,9 @@
 <?php
-//LOAD WORLD DATABASE
+    
+    // LOADS THE WORLD DB THEN USING QUESTID PULLS REQUESTED QUEST
+
     @mysql_selectdb(SQL_WORLD_DATABASE) or
-        die("Bad Database");
+        die("Cannot load database in loadqtable.php");
     
     // CREATE SQL SEARCH STRING
     $sql = "SELECT * FROM quest_template WHERE entry='$questID'";
@@ -9,7 +11,5 @@
     
     //LOAD THE RESULTS
     $result = mysql_fetch_array($sql) or die("Bad Results:<br/>".mysql_error());
-    
-    // UPDATE DATABASE
     
 ?>

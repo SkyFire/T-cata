@@ -3,8 +3,8 @@ Thanx for checking out T'CATA - (A Php SkyFire/Cataclysm Database Editor project
 - INSTALLATION:
     Create a folder anywhere on your server
     Extract contents to that folder
-    RENAME CONFIG.PHP.DIST -> CONFIG.PHP
-    Edit the CONFIG.PHP to match your server/database settings
+    RENAME INCLUDES\CONFIG.PHP.DIST -> CONFIG.PHP
+    Edit the INCLUDES\CONFIG.PHP to match your server/database settings
     Done
 
 - NOTES:
