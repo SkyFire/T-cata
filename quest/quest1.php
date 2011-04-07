@@ -1,5 +1,5 @@
 <?php
-   
+    include('config.php');
     //ENTRY IS HANDLED DIFFERENTLY
     //IF USER SUBMITTED UPDATE CHANGES
     //ONLY NEED TO UPDATE IF THE INPUTS ARE DIFFERENT FROM ORIGINAL
@@ -51,7 +51,9 @@
 <html>
     <head>
         <title><?php echo $result['Title'];?></title>
-         <link rel="stylesheet" href="../scripts/tcata.css" type="text/css">   
+         <link rel="stylesheet" href="../scripts/tcata.css" type="text/css">
+        <script type="text/javascript" src="../scripts/tcata.js"></script>    
+        
     </head>
 <body>
 <center>
@@ -100,7 +102,8 @@
         <td class="tablefont" >Type<br/>
             <input class="inputbox"  type="text" value="<?php echo $result['Type'];?>" name="Type" size="5">
         </td></tr><tr>
-        <td class="tablefont" >QuestFlags<br/>
+        <td class="tablefont" ><a href"" style="background-color:#0000ff;color:#ffffff;" onclick="popup('questcalc.php')"><b>QuestFlags</b></a><br/>
+           
             <input class="inputbox"  type="text" value="<?php echo $result['QuestFlags'];?>" name="QuestFlags" size="5">
         </td></tr><tr>
         <td class="tablefont" >LimitTime<br/>

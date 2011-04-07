@@ -1,0 +1,21 @@
+<?php
+    $questflags[1]="STAY_ALIVE";
+    $questflags[2]="PARTY_ACCEPT";
+    $questflags[3]="EXPLORATION";
+    $questflags[4]="SHAREABLE";
+    $questflags[5]="NONE2";
+    $questflags[6]="EPIC";
+    $questflags[7]="RAID";
+    $questflags[8]="TBC";
+    $questflags[9]="UNK2";
+    $questflags[10]="HIDDEN_REWARDS";
+    $questflags[11]="TBC_RACES";
+    $questflags[12]="DAILY";
+    $questflags[13]="UNK3";
+    $questflags[14]="UNK4";
+    $questflags[15]="WEEKLY";
+    $questflags[16]="AUTOCOMPLETE";
+    $questflags[17]="UNK5";
+    $questflags[18]="UNK6";
+    $questflags[19]="AUTO_ACCEPT";
+?>
