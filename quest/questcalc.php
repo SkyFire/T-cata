@@ -1,3 +1,8 @@
+<html>
+    <head>
+        <title>QuestFlag Calc</title>
+    </head>
+<body>
 <h2>QUESTFLAG CALCULATOR</h2>
 <a style="font-variant:small-caps;">Hold CTRL key to make multiple selections</a>
 <form method="post">
@@ -9,7 +14,7 @@
                 $counter=1;
                 include('config.php');?>
                 <select name="qflags[ ]" multiple=multiple >
-                    <?php for($i=1;$i<=19;$i++){?>
+                    <?php for($i=1;$i<=20;$i++){?>
                         <option value="<?php echo $counter;?>"><?php echo $questflags[$i];?></option>
                         <?php $counter = $counter + $counter; ?>
                     <?php }?>
@@ -37,3 +42,5 @@
 ?>
 <p/>
 QuestFlags <input type="text" value="<?php echo $counter;?>">
+</body>
+</html>
