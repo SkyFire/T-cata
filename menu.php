@@ -2,16 +2,9 @@
     include('includes/config.php');
     include('language/en.php');
 ?>
-<html>
-    <head>
-        <link rel="stylesheet" href="scripts/tcata.css" type="text/css">        
-    </head>
-    <body>
+
         <center>
-            <span class="title">
-            <?php echo PROGRAM_TITLE;?><br/>
-            </span>
-            <?php echo PROGRAM_VERSION;?>
+           <img src="<?php echo SITE_ROOT;?>images/header_white.jpg">
             <P/>
             <span class="menu">
             &nbsp;&nbsp;
@@ -19,11 +12,13 @@
                 &nbsp;|&nbsp;
                 <a href="<?php echo SITE_ROOT;?>creature/">CREATURE</a>
                 &nbsp;|&nbsp;
-                GAME OBJECT
+                <a href="">GAME OBJECT</a>
                 &nbsp;|&nbsp;
-                ITEM
+                <a href="">ITEM</a>
+                &nbsp;|&nbsp;
+                <a href="<?php echo SITE_ROOT;?>calc.php" target="_blank">ID CALCULATOR</a>
                 &nbsp;&nbsp;
             </span>
         </center>
-    </body>
-</html>
+        <p/>
+   

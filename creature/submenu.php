@@ -1,7 +1,6 @@
 <?php
     
 ?>
-
     Search<br/>
     <?php if(isset($creatureID)){?>
         Creature Template<br/>

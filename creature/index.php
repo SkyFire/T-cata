@@ -11,7 +11,12 @@
 ?>
 <html>
     <head>
-        <title><?php echo $result['name'];?></title>
+        <title><?php
+            if(isset($creatureID)){
+                echo $result['name'];
+            }else{
+                echo "Search Creature";
+            }?></title>
          <link rel="stylesheet" href="../scripts/tcata.css" type="text/css">   
     </head>
 <body>

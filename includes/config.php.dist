@@ -2,12 +2,13 @@
     /**
      * SERVER INFORMATION
      * */
-    define('HOST','');                  
-    define('USERNAME','');                      
-    define('PASSWORD','');
-    define('SQL_AUTH_DATABASE','');
-    define('SQL_CHAR_DATABASE','');
-    define('SQL_WORLD_DATABASE','');
+    define('HOST'                       ,'%HOST%');                  
+    define('USERNAME'                   ,'%USERNAME%');                      
+    define('PASSWORD'                   ,'%PASSWORD%');
+    define('SQL_AUTH_DATABASE'          ,'%AUTH%');    
+    define('SQL_WORLD_DATABASE'         ,'%WORLD%');
+    define('SQL_CHAR_DATABASE'          ,'%CHAR%');
+    define('SITE_ROOT'                  ,'%SITEROOT%');
     
     /**
      * TRY TO CONNECT TO THE SERVER
@@ -16,6 +17,6 @@
         die("ERROR: I CANNOT CONNECT TO YOUR SERVER WITH THE FOLLOWING INFORMATION:<br/>
             Host: ".HOST."<BR/>Username: ".USERNAME.
             "<br/>Password: ".PASSWORD."<P/>
-            Check your information in the CONFIG.PHP file");
+            Check your information in the INCLUDES/CONFIG.PHP file");
     
 ?>

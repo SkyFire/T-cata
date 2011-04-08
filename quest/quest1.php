@@ -41,12 +41,17 @@
         if($_REQUEST['ObjectiveText2']!=$result['ObjectiveText2']){sqlUpdate($questID,'ObjectiveText2',$_REQUEST['ObjectiveText2']);}
         if($_REQUEST['ObjectiveText3']!=$result['ObjectiveText3']){sqlUpdate($questID,'ObjectiveText3',$_REQUEST['ObjectiveText3']);}
         if($_REQUEST['ObjectiveText4']!=$result['ObjectiveText4']){sqlUpdate($questID,'ObjectiveText4',$_REQUEST['ObjectiveText4']);}
+        if($_REQUEST['CharTitleId']!=$result['CharTitleId']){sqlUpdate($questID,'CharTitleId',$_REQUEST['CharTitleId']);}
+        if($_REQUEST['SpecialFlags']!=$result['SpecialFlags']){sqlUpdate($questID,'SpecialFlags',$_REQUEST['SpecialFlags']);}
+        
         
        
         include('loadqtable.php');
         //unlink("sql.txt");
     }
-    //include('questmenu.php');
+    
+    //SET A GLOBAL TO REACH POPUP CALC
+    $_SESSION['questflags'] = $_REQUEST['quest'];
 ?>
 <html>
     <head>
@@ -95,6 +100,13 @@
         <td class="tablefont" >QuestLevel<br/>
             <input class="inputbox"  type="text" value="<?php echo $result['QuestLevel'];?>" name="QuestLevel" size="10">
         </td>
+        </td></tr><tr>
+        <td class="tablefont" >SpecialFlags<br/>
+            <input class="inputbox"  type="text" value="<?php echo $result['SpecialFlags'];?>" name="SpecialFlags" size="10">
+        </td>
+        <td class="tablefont" >CharTitleId<br/>
+            <input class="inputbox"  type="text" value="<?php echo $result['CharTitleId'];?>" name="CharTitleId" size="10">
+        </td>
     </tr></table>
 </td>
 <td class="tablefont"  valign="top">Flags<br/>
@@ -102,7 +114,7 @@
         <td class="tablefont" >Type<br/>
             <input class="inputbox"  type="text" value="<?php echo $result['Type'];?>" name="Type" size="5">
         </td></tr><tr>
-        <td class="tablefont" ><a href"" style="background-color:#0000ff;color:#ffffff;" onclick="popup('questcalc.php')"><b>QuestFlags</b></a><br/>
+        <td class="tablefont" >QuestFlags<br/>
            
             <input class="inputbox"  type="text" value="<?php echo $result['QuestFlags'];?>" name="QuestFlags" size="5">
         </td></tr><tr>
@@ -144,12 +156,19 @@
             <input class="inputbox"  type="text" value="<?php echo $result['SrcSpell'];?>" name="SrcSpell" size="10">
         </td>
     </tr></table>
+    <td valign="top" rowspan="2" class="qsubmenu">
+     <table class="resultsborder"><tr>
+        <td>
+            <?php include('questcalc.php');?>
+        </td>
+    </tr></table>
+</td>
 </td>
 </tr><tr>
 <td class="tablefont"  valign="top" colspan="5">
     <span style="background-color:#ffff00;font-family:verdana;">
             <font color="#ff0000" size="2">
-                &nbsp;<sup>1</sup>Changing the <b>'ENTRY'</b> will be treated as adding a <b>NEW</b> quest - Use Caution! (Untested)&nbsp;
+                <?php echo QUEST_ENTRY;?>
             </font>
             </span><p/>
     Description of Quest<br/>
@@ -190,6 +209,7 @@
 <td class="tablefont"  align="right" colspan="5">
     <input type="submit" value="Save" name="submit">
 </td>
+
 </tr></table>
 </form>
 </center>
