@@ -1,0 +1,64 @@
+
+a:hover{
+    text-decoration:underline overline;
+}
+
+.title{
+    background-color:#0000ff;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:14px;
+    font-weight:bold;
+    color:#ffffff;
+}
+.menu{
+    background-color:#ffffff;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:12px;
+    color:#000000;
+    text-decoration:none;
+}
+.submenu{
+    background-color:#c0c0c0;
+    font-family:verdana;
+    font-variant:small-caps;
+    font-size:12px;
+    color:#000000;
+    text-decoration:none;
+}
+.resultsborder{
+    border-style:solid;
+    border-width:1px;
+    border-color:#c0c0c0;
+    
+}
+.inputbox{
+    background-color:#c0c0c0;
+    font-family:verdana;
+    font-size:12px;
+    color:#000000;
+}
+.cinputbox{
+    background-color:#ffffff;
+    font-family:verdana;
+    font-size:12px;
+    color:#000000;
+    border-width:1px;    
+    width:80px;
+}
+.tablefont{
+    font-family:verdana;
+    font-size:12px;
+    color:#000000;
+}
+.qsubmenu{
+    font-family:verdana;
+    font-size:12px;
+    font-variant:small-caps;
+    color:#000000;
+    width:150px;
+    text-align:right;
+    background-color:#ffffc0;
+    text-decoration:none;
+}

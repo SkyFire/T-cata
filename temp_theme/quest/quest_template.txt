@@ -1,0 +1,6 @@
+UPDATE quest_template SET RequiredRaces = '-1' WHERE entry=14091
+UPDATE quest_template SET QuestFlags = '262157' WHERE entry=14091
+UPDATE quest_template SET QuestFlags = '262159' WHERE entry=14078
+UPDATE quest_template SET RequiredRaces = '-1' WHERE entry=14078
+UPDATE quest_template SET QuestFlags = '262145' WHERE entry=14078
+UPDATE quest_template SET QuestFlags = '524293' WHERE entry=14078
