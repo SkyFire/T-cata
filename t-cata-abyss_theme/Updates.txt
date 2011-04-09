@@ -1,0 +1,19 @@
+- RELEASE UPDATES:
+    Rev: 8
+        o Added SpecialFlags, CharTitleId to quest recieve
+        o Added session vars to pass to quest calc.   
+        o integrated calc to quest recieve (temp-will be moving again)
+        o formatted sql saves to proper format (i think)
+        o creature search done
+        o creature_template 
+        o Added config.php installer
+     
+    Rev:461116.26
+        o Changed url reference of 'id' to 'quest' (typo)
+        o Organized folder structure
+    Rev:46119.50
+        o Can update just about everything quest related
+        o Creature involved & quest relations not working (is next)
+        o SVN project possible this summer.
+    Rev:4511.a
+        o Project Started (Yeah!!)

@@ -1,0 +1,10 @@
+Fri Apr 8 17:48:09 - UPDATE `quest_template` SET `PrevQuestId` = '1' WHERE `entry`=14091;
+Fri Apr 8 17:48:58 - UPDATE `quest_template` SET `PrevQuestId` = '0' WHERE `entry`=14091;
+Fri Apr 8 17:50:25 - UPDATE `quest_template` SET `PrevQuestId` = '1' WHERE `entry`=14091;
+Fri Apr 8 17:50:30 - UPDATE `quest_template` SET `PrevQuestId` = '0' WHERE `entry`=14091;
+Fri Apr 8 18:50:16 - UPDATE `quest_template` SET `ReqItemId1` = '1' WHERE `entry`=14091;
+Fri Apr 8 18:50:20 - UPDATE `quest_template` SET `ReqItemId1` = '0' WHERE `entry`=14091;
+Fri Apr 8 18:50:26 - UPDATE `quest_template` SET `ReqItemCount1` = '1' WHERE `entry`=14091;
+Fri Apr 8 18:50:29 - UPDATE `quest_template` SET `ReqItemCount1` = '0' WHERE `entry`=14091;
+UPDATE `creature_template` SET `questItem1` = 1 WHERE `entry`=34863;
+UPDATE `creature_template` SET `questItem1` = 0 WHERE `entry`=34863;
