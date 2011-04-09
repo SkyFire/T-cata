@@ -1,6 +1,4 @@
-<?php
-    include("include/config.php");
-?>
+
 <h4>Search Criteria</h4>
 <form method="post">
 <table>
@@ -16,8 +14,9 @@
 
 <!-- NEED THIS DUE TO THE SEARCH RESULTS OFF SETTING THE DIVS
     ITS ONE OR THE OTHER -->
+    
 <?php if (!isset($_POST['submit'])){echo "</div>";}?>    
-</div></div><div class="CntFooter"></div></div>
+</div><div class="CntFooter"></div></div></div>
         
                     
                 
@@ -64,18 +63,17 @@
                                     <td width="50">ENTRY</td><TD width="200">TITLE</TD><td >DETAILS</td></tr>
                                 <?php
                                     while($result=mysql_fetch_array($sql)){
-                                        echo "<tr><td ><a href=\"quest1x.php?quest=".$result['entry']."\">".$result['entry'].
+                                        echo "<tr><td ><a href=\"quest_recieve.php?quest=".$result['entry']."\">".$result['entry'].
                                         "</td><td>".$result['Title'].
                                         "</td><td>".substr($result['Details'],0,80)."...</td></tr>";
                                     }
                                 ?>
                                 </tr></table>
-                            </div>
                                 
                         </div>
                     </div>
                 <div class="CntFooter"></div>
-            </div>
+            </div></div>
             <!--### END OF CONTENT STUFF -->
    <?php }// SUBMIT CHECK
 ?>

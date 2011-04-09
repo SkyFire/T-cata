@@ -5,7 +5,17 @@
     
     // LOAD SITE SCRIPTS
     include('include/config.php');
-       
+    include('include/functions.php');
+    
+    //CONNECT TO WORLD DB
+    mysql_selectdb(SQL_WORLD_DATABASE);
+    
+    //MAKE SURE QUEST IS SET OR SEND THEM BACK TO SEARCH
+    if(!isset($_REQUEST['quest'])){header('location:quest_search.php');}
+    
+    //LOAD QUEST INFO - LEFT NAME AS "RESULT" FOR LEGACY REASONS
+    $questID = $_REQUEST['quest'];
+    $result = quest($questID);
 ?>
 <html>
     <head>
@@ -36,12 +46,17 @@
                  <!--### SOME CONTENT CRAP
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
-                    <div class="CntHead"><div class="CntHeadTitle">Search For Quest</div></div>
+                    <div class="CntHead"><div class="CntHeadTitle">What you need to recieve the quest:&nbsp;
+                    <font color=#ffff00><?php echo $result['Title'];?></font></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-                                
-                              <?php include('if_quest_search.php');?>
-                                
+                                <form method="post">
+                                    <?php include('if_quest_recieve.php');?>
+                                </form>                              
+                             </div>
+                        </div>
+                        <div class="CntFooter"></div>
+                    </div></div>    
                            
                 <!--### END OF CONTENT STUFF -->
                 <!--### RIGHT COLUMN -->

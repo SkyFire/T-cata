@@ -8,6 +8,9 @@
     // LOAD A BASIC LANG SCRIPT
     include('lang/en.php');
     
+    // LOAD CONFIGURATION SCRIPT
+    include('include/config.php');
+    
 ?>
 <html>
     <head>
@@ -104,34 +107,8 @@
                     </div>
 
 
-                    <div class="NavBox">
-                            <div class="NavHead"><div class="NavHeadTitle">Block Title</div></div>
-                                <div class="NavFiller">
-                                    <div class="NavInfo">
-                        
-                                        &nbsp;You can use this area for server information, news ticker, vent or team 
-                                        speak viewers, stats, or anything else you can think of. Use as 
-                                        many of these blocks as you please.<br />
-                                    </div>
-                                </div>
-                            <div class="NavFooter"></div>
-                    </div>
+                    <?php include('calc_mnu.php');?>
 
-
-
-                    <div class="NavBox">
-                        <div class="NavHead"><div class="NavHeadTitle">Block Title</div></div>
-                            <div class="NavFiller">
-                                <div class="NavInfo">
-                        
-                                &nbsp;You can use this area for server information, news ticker, vent or team 
-                                speak viewers, stats, or anything else you can think of. Use as 
-                                many of these blocks as you please.<br />
-                        
-                                </div>
-                            </div>
-                        <div class="NavFooter"></div>
-                    </div>
 
                 </div>
                 <!--### END OF RIGHT COLUMN -->
