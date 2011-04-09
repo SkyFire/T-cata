@@ -63,15 +63,15 @@
                             <table class="resultsborder" >
                                 <tr>
                                     <td class="tablefont" >Type<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['Type'];?>" name="Type" size="5">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['Type'];?>" name="Type" >
                                     </td>
                                 </tr><tr>
                                     <td class="tablefont" >QuestFlags<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['QuestFlags'];?>" name="QuestFlags" size="5">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['QuestFlags'];?>" name="QuestFlags" >
                                     </td>
                                 </tr><tr>
                                     <td class="tablefont" >LimitTime<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['LimitTime'];?>" name="LimitTime" size="5">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['LimitTime'];?>" name="LimitTime" >
                                     </td>
                                 </tr>
                             </table>
@@ -83,15 +83,15 @@
                             <table class="resultsborder" >
                                 <tr>
                                     <td class="tablefont" >SrcItemId<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcItemId'];?>" name="SrcItemId" size="10">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcItemId'];?>" name="SrcItemId" >
                                     </td>
                                 </tr><tr>
                                     <td class="tablefont" >srcItemCount<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcItemCount'];?>" name="srcItemCount" size="10">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcItemCount'];?>" name="srcItemCount" >
                                     </td>
                                 </tr><tr>
                                     <td class="tablefont" >SrcSpell<br/>
-                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcSpell'];?>" name="SrcSpell" size="10">
+                                        <input class="inputbox"  type="text" value="<?php echo $result['SrcSpell'];?>" name="SrcSpell">
                                     </td>
                                 </tr>
                             </table>
