@@ -8,20 +8,44 @@ Vision  -  Revised 07/10
 /* Link Style */
 
 a.LINKurl:link {
-	color: #585858;
+	color: #ffffff;
 	text-decoration: none;
 }
 a.LINKurl:visited {
-	color:#585858;
+	color:#d0d0d0;
 	text-decoration: none;
 }
 a.LINKurl:active {
-	color:#585858;
+	color:#d0d0d0;
 	text-decoration: none;
 }
 a.LINKurl:hover {
 	color: #D56C01;
 	text-decoration: none;
+}
+
+/* Input Box */
+input{
+    font-size:10px;
+    border:1px solid;
+    border-color:#c0c0c0;
+    background:transparent;
+    color:#00ff00;
+}
+h4{
+    font-size:12px;
+    color:#D56C01;
+    font-variant:small-caps;
+}
+td{
+    font-size:12px;
+    color:#c0c0c0;
+}
+
+.inputlabel{
+    font-size:10px;
+    font-family:tahoma;
+    color:#FFFF00;
 }
 
 /* Clears */

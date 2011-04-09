@@ -1,5 +1,13 @@
 <?php
-        include('config.php');
+    // CHECK TO SEE IF THEY HAVE A CONFIG FILE
+    // DEFAULT IS THE DIST FILE
+    if(!file_exists('include/config.php')){
+        header('location:include/install.php');
+    }
+    
+    // LOAD A BASIC LANG SCRIPT
+    include('lang/en.php');
+    
 ?>
 <html>
     <head>
@@ -41,7 +49,7 @@
                             </div>
                         </div>
                         <div class="CntFooter"></div>
-                        </div>
+                    </div>
         
                         <!--### SOME CONTENT CRAP
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
