@@ -28,12 +28,7 @@
     
     if(isset($_POST['search'])){
         ?>
-         <div class="CntBox">
-            <div class="CntHead">
-                <div class="CntHeadTitle">Search Results</div>
-                    </div>
-                        <div class="CntFiller">
-                            <div class="CntInfo">
+        
                                 <?php
                                 
                                     $entry                  = $_POST['entry'];
@@ -76,10 +71,5 @@
                                 ?>
                                 </tr>
                                 </table>
-                        </div>
-                    </div>
-                <div class="CntFooter"></div>
-            </div></div>
-            <!--### END OF CONTENT STUFF -->
-            
+                        
    <?php } ?>
