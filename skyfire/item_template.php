@@ -58,17 +58,6 @@
                                 
                                 if(isset($_REQUEST['submit'])){
                                     
-                                    //CHECK RACE VALUE
-                                    $races[] = $_REQUEST['AllowableRace'];
-                                    $racetotal = array_sum($races);
-                                    die("reace totale ".$racetotal);
-                                    
-                                    $_REQUEST['AllowableRace'] = array_sum($_REQUEST['AllowableRace']);
-                                    if ($_REQUEST['AllowableRace'] >= 142){$_REQUEST['AllowableRace'] = -1;}
-                                    
-                                    //CHECK CLASS VALUE
-                                    $_REQUEST['AllowableClass'] = array_sum($_REQUEST['AllowableClass']);
-                                    if ($_REQUEST['AllowableClass'] >= 66){$_REQUEST['AllowableClass'] = -1;}
                                     
                                     //UPDATE THE RECORDS
                                     updateRecords($_REQUEST,$result,"item_template","entry",$itemid);
