@@ -124,6 +124,9 @@ function itemName($id){
                $field != "item" &&
                $field != "quest" &&
                $field != "XXX" &&
+               $field != "skyfire" &&
+               $field != "style" &&
+               $field != "style_cookie" &&
                $field != "trainer_id" &&
                $field != "vendor_id" &&
                $field != "AreaTrigger" &&
