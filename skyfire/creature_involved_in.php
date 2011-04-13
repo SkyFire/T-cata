@@ -12,13 +12,13 @@
     
 	
 	//DID USER SUBMIT? 
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
        
-	   $quest_change 					= $_REQUEST['questid'];
-	   $quest_method 					= $_REQUEST['questmethod'];
+	   $quest_change 					= $_POST['questid'];
+	   $quest_method 					= $_POST['questmethod'];
 	   $quest_delete 					= 0;
 	   
-	   if(isset($_REQUEST['delete'])){$quest_delete = 1;}
+	   if(isset($_POST['delete'])){$quest_delete = 1;}
 	   
 	   //ADDING QUEST
 	   if($quest_delete == 0){

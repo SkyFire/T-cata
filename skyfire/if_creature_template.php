@@ -115,8 +115,8 @@
                      <td >Health_mod<br><input type="text" name="Health_mod" value="<?php echo $result['Health_mod'];?>"></td>
                     <td >unit_class<br><input type="text" name="unit_class" value="<?php echo $result['unit_class'];?>"></td>
                     <td >equipment_id<br><input type="text" name="equipment_id" value="<?php echo $result['equipment_id'];?>"></td>
-                    <td >trainer_id<br><input type="text" name="trainer_id" value="NOT USED"></td>
-                    <td >vendor_id<br><input type="text" name="vendor_id" value="NOT USED"></td>
+                    <!--<td >trainer_id<br><input type="text" name="trainer_id" value="NOT USED"></td>
+                    <td >vendor_id<br><input type="text" name="vendor_id" value="NOT USED"></td>-->
                 </tr><tr>
                      <td >rank<br><input type="text" name="rank" value="<?php echo $result['rank'];?>"></td>
                     <td >family<br><input type="text" name="family" value="<?php echo $result['family'];?>"></td>

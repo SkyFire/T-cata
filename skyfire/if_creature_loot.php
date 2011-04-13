@@ -1,13 +1,13 @@
 <?php
 
                 
-            if(isset($_REQUEST['ci'])){
+            if(isset($_POST['ci'])){
                 $name="edit";
                 $value="Update";
                 $header = "Edit as needed then click Update";
                 //GET CREATURE AND ITS LOOT
                 mysql_selectdb(SQL_WORLD_DATABASE);
-                $sql = mysql_query("SELECT * FROM creature_loot_template WHERE item=".$_REQUEST['ci']) or die(mysql_error());
+                $sql = mysql_query("SELECT * FROM creature_loot_template WHERE item=".$_POST['ci']) or die(mysql_error());
                 $result = mysql_fetch_array($sql);
                 
             }else{
@@ -16,17 +16,17 @@
                 $header="Enter info to add new item to list";
             }
             
-            if(isset($_REQUEST['edit'])){
+            if(isset($_POST['edit'])){
                 //GET CREATURE AND ITS LOOT
                 mysql_selectdb(SQL_WORLD_DATABASE);
-                $sql = mysql_query("SELECT * FROM creature_loot_template WHERE item=".$_REQUEST['ci']) or die(mysql_error());
+                $sql = mysql_query("SELECT * FROM creature_loot_template WHERE item=".$_POST['ci']) or die(mysql_error());
                 $result = mysql_fetch_array($sql);
                 
-                $sql = "UPDATE creature_loot_template SET `ChanceOrQuestChance`=".$_REQUEST['ChanceOrQuestChance'].",
-                        `lootmode`=".$_REQUEST['lootmode'].",
-                        `groupid`=".$_REQUEST['groupid'].",
-                        `mincountOrRef`=".$_REQUEST['mincountOrRef'].",
-                        `maxcount`=".$_REQUEST['maxcount']." WHERE `item`=".$_REQUEST['ci'];
+                $sql = "UPDATE creature_loot_template SET `ChanceOrQuestChance`=".$_POST['ChanceOrQuestChance'].",
+                        `lootmode`=".$_POST['lootmode'].",
+                        `groupid`=".$_POST['groupid'].",
+                        `mincountOrRef`=".$_POST['mincountOrRef'].",
+                        `maxcount`=".$_POST['maxcount']." WHERE `item`=".$_POST['ci'];
                         echo $sql."<br/>";
                 $sql1 = mysql_query($sql) or die ("bad query<br>$sql<br/>".mysql_error());
                 header('location:creature_loot.php?npc='.$_REQUEST['npc']);
@@ -35,7 +35,7 @@
             
             
             //CLEAR INFO AND REVERT BACK TO NEW INSERT
-            if(isset($_REQUEST['clear'])){header('location:creature_loot.php?npc='.$_REQUEST['npc']);}
+            if(isset($_POST['clear'])){header('location:creature_loot.php?npc='.$_REQUEST['npc']);}
 ?>   
 
 <form method="post">
@@ -43,14 +43,14 @@
         <legend><?php echo $header;?></legend>
             <table>
                 <tr>
-                    <td>item<br><input type="text" name="item" value="<?php if(isset($_REQUEST['ci'])){echo $result['item'];}?>"></td>
-                    <td>name<br><input type="text" name="iemname" value="<?php if(isset($_REQUEST['ci'])){echo itemName($result['item']);}?>"></td>
-                    <td>Drop %<br><input title="Must be a negative number for quest drops" type="text" name="ChanceOrQuestChance" value="<?php if(isset($_REQUEST['ci'])){echo $result['ChanceOrQuestChance'];}?>"></td>
-                     <td>lootmode<br><input type="text" name="lootmode" value="<?php if(isset($_REQUEST['ci'])){echo $result['lootmode'];}?>"></td>
+                    <td>item<br><input type="text" name="item" value="<?php if(isset($_POST['ci'])){echo $result['item'];}?>"></td>
+                    <td>name<br><input type="text" name="iemname" value="<?php if(isset($_POST['ci'])){echo itemName($result['item']);}?>"></td>
+                    <td>Drop %<br><input title="Must be a negative number for quest drops" type="text" name="ChanceOrQuestChance" value="<?php if(isset($_POST['ci'])){echo $result['ChanceOrQuestChance'];}?>"></td>
+                     <td>lootmode<br><input type="text" name="lootmode" value="<?php if(isset($_POST['ci'])){echo $result['lootmode'];}?>"></td>
                 </tr><tr>
-                    <td>groupid<br><input type="text" name="groupid" value="<?php if(isset($_REQUEST['ci'])){echo $result['groupid'];}?>"></td>
-                    <td>MinCnt<br><input type="text" name="mincountOrRef" value="<?php if(isset($_REQUEST['ci'])){echo $result['mincountOrRef'];}?>"></td>
-                    <td>maxCnt<br><input type="text" name="maxcount" value="<?php if(isset($_REQUEST['ci'])){echo $result['maxcount'];}?>"></td>
+                    <td>groupid<br><input type="text" name="groupid" value="<?php if(isset($_POST['ci'])){echo $result['groupid'];}?>"></td>
+                    <td>MinCnt<br><input type="text" name="mincountOrRef" value="<?php if(isset($_POST['ci'])){echo $result['mincountOrRef'];}?>"></td>
+                    <td>maxCnt<br><input type="text" name="maxcount" value="<?php if(isset($_POST['ci'])){echo $result['maxcount'];}?>"></td>
                 </tr>
             </table>
     </fieldset>

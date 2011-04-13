@@ -60,7 +60,7 @@
 				
 				
 				<?php //--SHOW RESULTS
-					if(isset($_REQUEST['submit'])){ ?>
+					if(isset($_POST['submit'])){ ?>
 				<div class="CntBox">
                     <div class="CntHead">
 						<div class="CntHeadTitle">

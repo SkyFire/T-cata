@@ -2,10 +2,10 @@
     
     
     //FIND THE CREATURE ITSELF USING THE ID
-    if(isset($_REQUEST['update'])){
+    if(isset($_POST['update'])){
         
         //IF USER CLIK UPDATE USE THIER ID
-        $creatureID = $_REQUEST['id'];
+        $creatureID = $_POST['id'];
     }else{
         
         //OTHERWISE USE THE RESULT FROM SENDING PAGE
@@ -25,8 +25,8 @@
     $npcPos = mysql_fetch_array($sql);
     
     
-    if(isset($_REQUEST['submit'])){
-        $entryID = $_REQUEST['id'];
+    if(isset($_POST['submit'])){
+        $entryID = $_POST['id'];
         switch($giver){
             case 1://GIVER
                 $sql = "UPDATE `creature_questrelation` SET `id`=$entryID WHERE `quest`=$questID";

@@ -56,11 +56,11 @@
                                 
                                 $itemid = $_REQUEST['item'];
                                 
-                                if(isset($_REQUEST['submit'])){
+                                if(isset($_POST['submit'])){
                                     
                                     
                                     //UPDATE THE RECORDS
-                                    updateRecords($_REQUEST,$result,"item_template","entry",$itemid);
+                                    updateRecords($_POST,$result,"item_template","entry",$itemid);
                                     $query = "SELECT * FROM `item_template` WHERE `entry` =".$_REQUEST['item'];
                                     $sql = mysql_query($query);
                                     $result = mysql_fetch_array($sql);

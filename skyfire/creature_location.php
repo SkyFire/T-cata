@@ -22,10 +22,10 @@
     $status = "";
     
     
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
 
         $creatureID = $_REQUEST['npc'];
-        $userData = $_REQUEST;
+        $userData = $_POST;
         
         parseData("if_creature_loc.php",$userData,"creature",$creatureID,"id");
         

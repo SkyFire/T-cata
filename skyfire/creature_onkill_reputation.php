@@ -14,18 +14,18 @@
     
     
     
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
         
         //SEE IF THEY ENTERED AN ID THAT DOES NOT EXIST
-        if($_REQUEST['creature_id'] != $result['creature_id']){
+        if($_POST['creature_id'] != $result['creature_id']){
             
             //IF SO, ADD IT TO THE DB
-            $creatureID = $_REQUEST['creature_id'];
+            $creatureID = $_POST['creature_id'];
             $sql = "INSERT INTO creature_onkill_reputation (`entry_id`) VALUES ($creatureID)";
             $sql1 = mysql_query($sql1) or die ("bad query<br>$sql<br>".mysql_error());            
         }
         
-        updateRecords($_REQUEST,$result,"creature_onkill_reputation","creature_id",$_REQUEST['creature_id']);
+        updateRecords($_POST,$result,"creature_onkill_reputation","creature_id",$_POST['creature_id']);
         
         
         //UPDATE TO SHOW CHANGES

@@ -1,7 +1,7 @@
 <?php
   
         //MAKE A USER DATA ARRAY FROM ANY POSSIBLE REQUEST(POST) 
-        $userData = $_REQUEST;
+        $userData = $_POST;
         mysql_selectdb(SQL_WORLD_DATABASE);
 
         

@@ -111,27 +111,14 @@ function itemName($id){
         fclose($handle);
     }
     
-    // USERDATA = AS PROVIDED BY '$_REQUEST, $RESULT = FROM INIT
+    // USERDATA = AS PROVIDED BY '$_POST, $RESULT = FROM INIT
     // TABLE WE ARE UPDATING, WHAT COMES AFTER WHERE
     // REREF = WHAT ENTRY VARIABLE i.e. entry_id, id, creature_id etc..
     function updateRecords($userData,$result,$table,$where_clause,$recRef){
 
         foreach($userData as $field => $userInfo){
-            
-            if(
-               $userInfo > "" &&
-               $field != "npc" &&
-               $field != "item" &&
-               $field != "quest" &&
-               $field != "XXX" &&
-               $field != "skyfire" &&
-               $field != "style" &&
-               $field != "style_cookie" &&
-               $field != "trainer_id" &&
-               $field != "vendor_id" &&
-               $field != "AreaTrigger" &&
-               $field != "PHPSESSID" &&
-               $field != "submit"){
+           
+            if($userInfo > "" && $field != "XXX" && $field != "submit"){
                 
                 //ONLY UPDATE IF SOMETHING CHANGED
                 if($userInfo != $result[$field]){

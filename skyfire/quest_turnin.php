@@ -17,9 +17,9 @@
     $result = quest($questID);
     
         //CHECK TO SEE IF ANYCHANGES WERE MADE AND UPDATE THEM
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
 		
-		updateRecords($_REQUEST,$result,"quest_template","entry",$_REQUEST['quest']);
+		updateRecords($_POST,$result,"quest_template","entry",$_REQUEST['quest']);
 		
 		
         //LOAD QUEST INFO - LEFT NAME AS "RESULT" FOR LEGACY REASONS

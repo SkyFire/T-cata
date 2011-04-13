@@ -18,16 +18,16 @@
     
     
     
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
         //CHECK EACH ENTRY FOR ANY CHANGES
         //IF ENTRY HAS BEEN CHANGED, I TREAT IT AS A NEW QUEST LINE
         //THEN EACH SUBSEQUENT CHECK WILL BE APPLIED TO THE NEW ENTRY ID
-        if($_REQUEST['entry'] != $result['entry']){
+        if($_POST['entry'] != $result['entry']){
             $sql = "INSERT INTO quest_template (entry) VALUE ($Entry)";
             $sql = @mysql_query($sql) or die("Cannot Insert Entry Item<br/>See QUEST1.PHP");    
         }
         
-        updateRecords($_REQUEST,$result,"quest_template","entry",$_REQUEST['quest']);
+        updateRecords($_POST,$result,"quest_template","entry",$_REQUEST['quest']);
        
         //LOAD THE NEW RECORDS TO DISPLAY
         $questID = $_REQUEST['quest'];

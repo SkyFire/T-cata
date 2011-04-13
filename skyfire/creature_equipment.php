@@ -21,10 +21,10 @@
     $status = "";
     
     
-    if(isset($_REQUEST['submit'])){
+    if(isset($_POST['submit'])){
 
         
-        $userData = $_REQUEST;
+        $userData = $_POST;
         
         
          $id = $_REQUEST['npc'];
