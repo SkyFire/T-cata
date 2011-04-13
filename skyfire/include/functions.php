@@ -121,6 +121,7 @@ function itemName($id){
             if(
                $userInfo > "" &&
                $field != "npc" &&
+               $field != "item" &&
                $field != "quest" &&
                $field != "XXX" &&
                $field != "trainer_id" &&

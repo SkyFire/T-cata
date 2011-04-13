@@ -38,6 +38,14 @@ input{
     color:#00ff00;
 }
 
+select{
+    font-size:10px;
+    border:1px solid;
+    border-color:#0c0c0c;
+	background-color:#1B1B1B;
+    color:#00ff00;
+}
+
 .inputbtn{
     font-size:10px;
 	font-variant:small-caps;

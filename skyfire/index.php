@@ -42,14 +42,18 @@
                             <div class="CntInfo">
                                 
                                 <div align="justify">
-                                    Thank you for using <strong>T-Cata</strong>. Many months of non stop writing went into this. My first
+									<center>
+										<p/><font color="#ff0000">NOTE: You will not see this page again! You might want to read it</font><p/>
+									</center>
+                                    Thank you for using <strong>T-Cata</strong>. Many months of non stop writing went into this (and it is far from finished).
+									My first
 									idea was to make another .exe version (much like QUICE), however there were a few other projects in the
 									making as such. However, there was not one for php, which I never figured out why. would make a great way
 									to edit your server remotely (with the correct settings). So off I went :-)<p/>
 									
                                     You are welcome to use this app as you please. Do not change any references to me (the author) as
 									a lot of time went into this "solo" - and besides, its rude.<br/>
-									I have written this as simple as I could so that even those that know very little of php, could at least
+									<p/>I have written this as simple as I could so that even those that know very little of php, could at least
 									make some simple changes. The basic format is pretty simple. anytihng that begins with <span class="npcNames">if_*.php</span> is the
 									tables and display. without the <span class="npcNames">if_*</span> prefix, it is the site design template. I did this so that if you want to
 									change the design, it could be done with little modifications (not for rookies - and I would wait til the code cleanup is done
@@ -64,6 +68,7 @@
                                     <p>Again,  I ask that any references to <span class="npcNames">T-Cata SkyFire
                                     Cataclysm DB Editor</span> is not removed.<p/>
                                     Thanks for viewing and enjoy!
+									
                                 </div>
                                 
                             </div>

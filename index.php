@@ -1,5 +1,16 @@
 <?php
-
+    if (isset($_REQUEST['submit'])){
+        if(isset($_REQUEST['skyfire'])){
+            $month = 60*60*24*30*time();
+            setcookie("skyfire","skyfire",$month);
+            header('location:skyfire');
+        }
+    }
+    if(isset($_COOKIE['skyfire'])){
+        header('location:skyfire');
+        die();
+    }
+    
 ?>
 <center><h2>World of Warcraft<sup>PS*</sup> PHP DB EDITORS</h2>
     <P>
@@ -9,6 +20,20 @@
         </small>
     </p>
         MANGOS (comming soon...)
+        
+        
+        <p/>
+										<form method="post">
+											<fieldset style="width:300px;">
+												<legend>Settings</legend>
+                                                <div align="left">
+										Settings:<br/>
+										<input type="checkbox" name="skyfire" value="skyfire">Take me to SKYFIRE DB Editor always<br/>
+										<br/>
+										<input type="submit" name="submit" value="Save Settings">
+                                                </div>
+											</fieldset>
+										</form>
         
 </center>
 <sup>PS*</sup><small>Private Servers</small>

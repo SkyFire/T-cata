@@ -6,6 +6,7 @@
     define('MNU_QUEST'                  ,'Quest');
     define('MNU_CREATURE'               ,'Creature');
     define('MNU_ITEM'                   ,'Item');
+    define('MNU_GAMEOBJECT'             ,'Game Obj');
     
     //QUEST RELATED
     define('Q_TURNIN'                   ,'What must be satisfied before turning in: ');
@@ -32,6 +33,8 @@
     define('Q_MNU_3'                    ,'Who/What gives you this quest');
     define('Q_MNU_4'                    ,'Who/Where do you turn this quest in at');
     
+    define('G_MNU_1'                    ,'Game Object Secondary Menu');
+    
     //CREATURE
     define('C_MNU_1'                    ,'Creature Submenu');
     define('C_MNU_2'                    ,'Creature Location Information');
@@ -39,6 +42,8 @@
     define('C_MNU_4'                    ,'Creature Model Information');
     define('C_MNU_5'                    ,'Creature Loot Information');
     define('C_MNU_6'                    ,'Quest creture is involved in as a taker/giver');
+    
+    define('I_MNU_1'                    ,'Item Submenu');
     
     define('NO_LOOT_1'                  ,'No loot information on CREATURE:');
     define('NO_LOOT_1a'                 ,', or creature has no loot.<br/>');
