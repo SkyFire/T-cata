@@ -32,3 +32,5 @@ UPDATE `item_template` SET `InventoryType` = 2 WHERE `entry` = 1315
 UPDATE `item_template` SET `Quality` = 4 WHERE `entry` = 1315
 -- -- Wed Apr 13 7:32:41
 UPDATE `item_template` SET `sheath` = 4 WHERE `entry` = 18583
+-- -- Wed Apr 13 13:21:39
+UPDATE `item_template` SET `RequiredSkillRank` = 3 WHERE `entry` = 37145

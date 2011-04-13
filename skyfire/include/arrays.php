@@ -42,7 +42,7 @@
         "UNK_0x08"          =>8,            "OPENABLE"              =>4,
         "CONJURED"          =>2,            "BINDED"                =>1     
         
-    );
+    );// MAX FOR -1 16,777,215
     
     $races = array(
         "WORGEN"                                    => 22,
@@ -61,7 +61,7 @@
         "DWARF"                                     => 3,
         "ORC"                                       => 2,
         "HUMAN"                                     => 1
-    );
+    );//MAX FOR -1 = 142
     
     $classes = array(
         "DRUID"                                     => 11,
@@ -75,7 +75,7 @@
         "HUNTER"                                    => 3,
         "PALADIN"                                   => 2,
         "WARRIOR"                                   => 1
-    );
+    );// MAX FOR -1 = 66
     
     $sheath = array(
         "SHEILD"                                    => 7,

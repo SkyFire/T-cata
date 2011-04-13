@@ -11,6 +11,9 @@
         
             if($value       > "" &&
                $searchName != "submit" &&
+               $searchName != "cookie" &&
+               $searchName != "style_cookie" &&
+               $searchName != "style" &&
                $searchName != "skyfire" &&
                $searchName != "PHPSESSID"){                
              echo($searchName."<br>");   
