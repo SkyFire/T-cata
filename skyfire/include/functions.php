@@ -108,6 +108,7 @@ function itemName($id){
         
         $handle = fopen($filename,"a");
         fwrite($handle,"-- -- ".date("D M j G:i:s")."\n".$data."\n");
+        
         fclose($handle);
     }
     
@@ -120,11 +121,30 @@ function itemName($id){
            
             if($userInfo > "" && $field != "XXX" && $field != "submit"){
                 
-                //ONLY UPDATE IF SOMETHING CHANGED
-                if($userInfo != $result[$field]){
-                    $sql = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $recRef";
-                    $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
-                    saveSQL($sql,"SQL_UPDATES.SQL");
+                //SPECIAL HANDLING OF MULTI SELECT OPTIONS
+                // - RACES
+                if($field == "AllowableRace"){
+                    //SEE IF TOTAL IS 142 OR SUM OF ALL RACES, IF SO SET VALUE
+                    //TO -1
+                    if(array_sum($userInfo) >= 142){
+                        $userInfo = -1;
+                        $sql = "UPDATE `$table` SET `$field` = -1 WHERE `$where_clause` = $recRef";
+                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
+                        saveSQL($sql,"SQL_UPDATES.SQL");
+                    }else{
+                        $sql = "UPDATE `$table` SET `$field` = ".array_sum($userInfo)." WHERE `$where_clause` = $recRef";
+                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
+                        saveSQL($sql,"SQL_UPDATES.SQL");
+                        
+                    }
+                }else{
+                
+                    //ONLY UPDATE IF SOMETHING CHANGED
+                    if($userInfo != $result[$field]){
+                        $sql = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $recRef";
+                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
+                        saveSQL($sql,"SQL_UPDATES.SQL");
+                    }
                 }
             }
         }    

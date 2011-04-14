@@ -25,10 +25,10 @@
 	   
 			switch ($quest_method){
 				case "giver":
-					$sql = "INSERT INTO `questrelation` (`id`,`quest`) VALUES ($id,$quest_change)";					
+					$sql = "INSERT INTO `creature_questrelation` (`id`,`quest`) VALUES ($id,$quest_change)";					
 					break;
 				case "taker":
-					$sql = "INSERT INTO `involvedrelation` (`id`,`quest`) VALUES ($id,$quest_change)";
+					$sql = "INSERT INTO `creature_involvedrelation` (`id`,`quest`) VALUES ($id,$quest_change)";
 					break;
 				default:
 					die("Quest Update Error");
@@ -41,10 +41,10 @@
 		
 			switch ($quest_method){
 				case "giver":
-					$sql = "DELETE FROM `questrelation` (`id`) VALUES ($id)";					
+					$sql = "DELETE FROM `creature_questrelation` (`id`) VALUES ($id)";					
 					break;
 				case "taker":
-					$sql = "DELETE FROM `involvedrelation` (`id`) VALUES ($id)";
+					$sql = "DELETE FROM `creature_involvedrelation` (`id`) VALUES ($id)";
 					break;
 				default:
 					die("Quest Deletion Error");
@@ -55,10 +55,10 @@
 	   }//DELETE ?
 	   
 	   //RUN THE QUERY
-		$query = mysql_query($sql) or die("Bad Query<br>$sql<br/>".mysql_error());
+		$query = mysql_query($sql) or die("Bad Query creature involved in<br>$sql<br/>".mysql_error());
 		
 		//EXPORT TO TEXT FILE
-		saveSQL($query,"creature_involed_updates.sql");
+		saveSQL($sql,"creature_involed_updates.sql");
 	   
 	   
     }//SUBMIT

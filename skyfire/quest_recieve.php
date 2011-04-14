@@ -26,6 +26,11 @@
             $sql = "INSERT INTO quest_template (entry) VALUE ($Entry)";
             $sql = @mysql_query($sql) or die("Cannot Insert Entry Item<br/>See QUEST1.PHP");    
         }
+		
+		//GET RID OF HYPHENS
+		foreach($_POST as $itemname => $value){
+			$_POST[$itemname] = str_replace("'","",$_POST[$itemname]);
+		}
         
         updateRecords($_POST,$result,"quest_template","entry",$_REQUEST['quest']);
        

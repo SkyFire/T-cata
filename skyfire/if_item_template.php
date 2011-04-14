@@ -82,10 +82,10 @@
         <legend>Requirements</legend>
             <table>
                 <tr>
-                    <td rowspan="2" >AllowableRace<br/>
-                        <input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"><br/>
+                    <td rowspan="2" >AllowableRace<br/><?php echo $result['AllowableRace'];?>
+                        <!-- <input type="text" name="AllowableRace" value="<?php //echo $result['AllowableRace'];?>"><br/>-->
                         
-                        <select multiple="multiple" size="5">
+                        <select multiple="multiple" size="5" name="AllowableRace[]">
                         <?php
                             $tmpFlags = $result['AllowableRace'];
                         
@@ -93,7 +93,7 @@
                         
                                 echo "<option value=\"$value\"";
                         
-                                if($value == $tmpFlags || $result['AllowableRace'] == -1){
+                                if($value >= $tmpFlags || $result['AllowableRace'] == -1){
                                     echo " selected=\"selected\" ";
                                     $tmpFlags -= $value;
                                     }

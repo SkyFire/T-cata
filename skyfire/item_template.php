@@ -57,8 +57,7 @@
                                 $itemid = $_REQUEST['item'];
                                 
                                 if(isset($_POST['submit'])){
-                                    
-                                    
+                                   
                                     //UPDATE THE RECORDS
                                     updateRecords($_POST,$result,"item_template","entry",$itemid);
                                     $query = "SELECT * FROM `item_template` WHERE `entry` =".$_REQUEST['item'];

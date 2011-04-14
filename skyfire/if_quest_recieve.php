@@ -107,29 +107,29 @@
                             <table>
                                 <tr>
                                     <td >
-                                        Title<br/>
+                                        Title<br/><?php echo $result['Title'];?><br/>
                                         <input type="text" name="Title" value="<?php echo $result['Title'];?>" size="100">
                                     </td>
                                 </tr><tr>
                                     <td>
                                         <table>
                                             <tr>
-                                                <td valign="top">Details<br><textarea rows="7" cols="30" name="Details"><?php echo $result['Details'];?></textarea></td>
-                                                <td valign="top">Objective<br/><textarea rows="7" cols="30" name="Objectives"><?php echo $result['Objectives'];?></textarea></td>
-                                                <td valign="top" rowspan="2">OfferRewardText<br><textarea rows="4" cols="30" name="OfferRewardText"><?php echo $result['OfferRewardText'];?></textarea><br>
-                                                    Completed Text<br><input size="35" type="text" name="CompletedText"><?php echo $result['CompletedText'];?></textarea>
+                                                <td valign="top">Details<br><textarea rows="7" cols="30" name="Details">"<?php echo $result['Details'];?>"</textarea></td>
+                                                <td valign="top">Objective<br/><textarea rows="7" cols="30" name="Objectives">"<?php echo $result['Objectives'];?>"</textarea></td>
+                                                <td valign="top" rowspan="2">OfferRewardText<br><textarea rows="4" cols="30" name="OfferRewardText">"<?php echo $result['OfferRewardText'];?>"</textarea><br>
+                                                    Completed Text<br><input size="35" type="text" name="CompletedText"><?php echo '"'.$result['CompletedText'].'"';?></textarea>
                                                     ObjectiveText1<br/>
-                                                    <input class="inputbox"  type="text" name="ObjectiveText1" value="<?php echo $result['ObjectiveText1'];?>"><br/>
+                                                    <input class="inputbox"  type="text" name="ObjectiveText1" value="<?php echo '"'.$result['ObjectiveText1'].'"';?>"><br/>
                                                     ObjectiveText2<br/>
-                                                    <input class="inputbox"  type="text" name="ObjectiveText2" value="<?php echo $result['ObjectiveText2'];?>"><br/>
+                                                    <input class="inputbox"  type="text" name="ObjectiveText2" value="<?php echo '"'.$result['ObjectiveText2'].'"';?>"><br/>
                                                     ObjectiveText3<br/>
-                                                    <input class="inputbox"  type="text" name="ObjectiveText3" value="<?php echo $result['ObjectiveText3'];?>"><br/>
+                                                    <input class="inputbox"  type="text" name="ObjectiveText3" value="<?php echo '"'.$result['ObjectiveText3'].'"';?>"><br/>
                                                     ObjectiveText4<br/>
-                                                    <input class="inputbox"  type="text" name="ObjectiveText4" value="<?php echo $result['ObjectiveText4'];?>"><br/>
+                                                    <input class="inputbox"  type="text" name="ObjectiveText4" value="<?php echo '"'.$result['ObjectiveText4'].'"';?>"><br/>
                                                 </td>
                                             </tr><tr>
-                                                <td valign="top">End Text<br><textarea rows="4" cols="30" name="EndText"><?php echo $result['EndText'];?></textarea></td>
-                                                <td valign="top">RequestItemsText<br><textarea rows="4" cols="30" name="RequestItemsText"><?php echo $result['RequestItemsText'];?></textarea></td>
+                                                <td valign="top">End Text<br><textarea rows="4" cols="30" name="EndText">"<?php echo $result['EndText'];?>"</textarea></td>
+                                                <td valign="top">RequestItemsText<br><textarea rows="4" cols="30" name="RequestItemsText">"<?php echo $result['RequestItemsText'];?>"</textarea></td>
                                                 
                                                
                                         </table>

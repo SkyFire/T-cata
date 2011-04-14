@@ -9,13 +9,7 @@
         $query = "SELECT * FROM `item_template` WHERE ";
         foreach($userData as $searchName => $value){
         
-            if($value       > "" &&
-               $searchName != "submit" &&
-               $searchName != "cookie" &&
-               $searchName != "style_cookie" &&
-               $searchName != "style" &&
-               $searchName != "skyfire" &&
-               $searchName != "PHPSESSID"){                
+            if($value > "" &&  $searchName != "submit" ){                
              echo($searchName."<br>");   
                 //MOST EFFICIENT WAY TO SEARCH, HOWEVER RESULTS MAY VARY ON
                 //ENTRY. TODO:MAKE ENTRY A SEPARATE QUERY
