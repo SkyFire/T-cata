@@ -1,4 +1,5 @@
 <?php
+/*
 function sqlUpdate($Entry,$FieldName,$UserValue){
     //UPDATE THE DATABASE
     $sql1 = "UPDATE quest_template SET $FieldName = '$UserValue' WHERE entry=$Entry";
@@ -24,40 +25,50 @@ function sqlCUpdate($FieldName,$UserValue){
         fwrite($fh,"UPDATE `creature_template` SET `$FieldName` = $UserValue WHERE `entry`=".$_REQUEST['npc'].";\n");
         fclose($fh);
 }
+*/
 
-
-//LOAD INFORMATION ABOUT SELECTED QUEST USING THE ID
-function quest($questID){
+/**
+ *RETURN INFORMATION (ARRAY) ABOUT QUEST:questid
+ **/
+function quest($quest_id)
+{
     //CONNECT TO THE WORLD
     @mysql_selectdb(SQL_WORLD_DATABASE) or
         die("Bad Database IN function.quest".mysql_error());
      
-    $sql = "SELECT * FROM quest_template WHERE entry=$questID";
-    $sql = mysql_query($sql) or die("Bad Quest Query in functions.quest:$sql<br/>".mysql_error());
-    $quest = mysql_fetch_array($sql) or die("Bad Quest Fetch Error:<br>".mysql_error());
+    $query = "SELECT * FROM quest_template WHERE entry=$quest_id";
+    $sql = mysql_query($query) or die("Bad Quest Query in functions.quest:$query<br/>".mysql_error());
+    $quest = mysql_fetch_array($sql);
     return $quest;
 }
 
-//LOAD CREATURE INFORMATION
-function creature($entryID){
+/**
+ *RETURN INFORMATION (ARRAY) ABOUT CREATURE
+ **/
+function creature($entry_id)
+{
     //CONNECT TO THE WORLD
     @mysql_selectdb(SQL_WORLD_DATABASE) or
         die("Bad Database IN function.creature".mysql_error());
      
-    $sql = "SELECT * FROM creature_template WHERE entry=$entryID";
-    $sql = mysql_query($sql) or die("Bad Quest Query in functions.creature:$sql<br/>".mysql_error());
-    $creature = mysql_fetch_array($sql) or die("Bad creature Fetch Error:<br>".mysql_error());
+    $query = "SELECT * FROM creature_template WHERE entry=$entry_id";
+    $sql = mysql_query($query) or die("Bad Quest Query in functions.creature:$sql<br/>".mysql_error());
+    $creature = mysql_fetch_array($sql);
     return $creature;       
 }
 
-//GETS ITEM STRING NAME BY ID
-function itemName($id){
+/**
+ *RETURN THE STRING NAME BASE ON ID
+ **/
+function itemName($id)
+{
     mysql_selectdb(SQL_WORLD_DATABASE);
-    $sql = mysql_query("SELECT * FROM item_template WHERE entry=$id") or die(mysql_error());
-    $result = mysql_fetch_array($sql);
-    return $result['name'];
+    $query = mysql_query("SELECT * FROM item_template WHERE entry=$id") or die(mysql_error());
+    $sql = mysql_fetch_array($query);
+    return $sql['name'];
 }
 
+/*
 //STRIPRESULTS HOLDS THE FIELD NAME WE ARE WORKING ON
     function stripResults($aline){
         $value = substr($aline,strpos($aline,"result[")+8,strlen($aline));
@@ -101,29 +112,33 @@ function itemName($id){
         }//FILE LOOP
         fclose($handle);
     }
-    
+ */    
     //SAVES CHANGES TO A TEXT FILE, DATA IS SQL QUERY
     //FILENAME IS THE NAME TO SAVE/APPEND IT TO
-    function saveSQL($data,$filename){
-        
+    function saveSQL($data,$filename,$remark)
+    {
         $handle = fopen($filename,"a");
-        fwrite($handle,"-- -- ".date("D M j G:i:s")."\n".$data."\n");
-        
+            fwrite($handle,"-- --".date("D M j G:i:s")." $remark\n ".$data."\n");
         fclose($handle);
     }
     
     // USERDATA = AS PROVIDED BY '$_POST, $RESULT = FROM INIT
     // TABLE WE ARE UPDATING, WHAT COMES AFTER WHERE
     // REREF = WHAT ENTRY VARIABLE i.e. entry_id, id, creature_id etc..
-    function updateRecords($userData,$result,$table,$where_clause,$recRef){
+    function updateRecords($userData,$result,$table,$where_clause,$recRef)
+    {
 
-        foreach($userData as $field => $userInfo){
+        foreach($userData as $field => $userInfo)
+        {
            
-            if($userInfo > "" && $field != "XXX" && $field != "submit"){
+            if($userInfo > "" && $field != "XXX" && $field != "submit")
+            {
                 
                 //SPECIAL HANDLING OF MULTI SELECT OPTIONS
                 // - RACES
-                if($field == "AllowableRace"){
+                // TODO: USE A SWITCH HERE ON $FIELD
+                if($field == "AllowableRace")
+                {
                     //SEE IF TOTAL IS 142 OR SUM OF ALL RACES, IF SO SET VALUE
                     //TO -1
                     if(array_sum($userInfo) >= 142){
@@ -140,7 +155,8 @@ function itemName($id){
                 }else{
                 
                     //ONLY UPDATE IF SOMETHING CHANGED
-                    if($userInfo != $result[$field]){
+                    if($userInfo != $result[$field])
+                    {
                         $sql = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $recRef";
                         $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
                         saveSQL($sql,"SQL_UPDATES.SQL");
