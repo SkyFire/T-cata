@@ -142,7 +142,7 @@
     <legend>Other</legend>
         <table>
             <tr>
-                <td class="tablefont" >AreaTrigger<br/><input class="inputbox"  type="text" name="AreaTrigger" value="NOT USED"></td>
+                <td class="tablefont" ></td>
                 <td class="tablefont" >SpecialFlags<br/><input class="inputbox"  type="text" name="SpecialFlags" value="<?php echo $result['SpecialFlags'];?>"></td>
                 <td class="tablefont" >SuggestedPlayers<br/><input class="inputbox"  type="text" name="SuggestedPlayers" value="<?php echo $result['SuggestedPlayers'];?>"></td>
             </tr>

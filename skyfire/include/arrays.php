@@ -118,6 +118,70 @@
         "N/A"                                       => 0
     );
     
+    $questFlags = array(
+        "AUTO_ACCEPT"                               =>524288,
+        "OBJ_TEXT"                                  =>262144,
+        "SPECIAL_ITEM"                              =>131072,
+        "AUTOCOMPLETE"                              =>65536,
+        "WEEKLY"                                    =>32768,
+        "UNAVAILABLE"                               =>16384,
+        "REPEATABLE"                                =>8192,
+        "DAILY"                                     =>4096,
+        "TBC_RACES"                                 =>2048,
+        "AUTO_REWARDED"                             =>1024,
+        "HIDDEN_REWARDS"                            =>512,
+        "DELIVER_MORE"                              =>256,
+        "TBC"                                       =>128,
+        "RAID"                                      =>64,
+        "EPIC"                                      =>32, 
+        "//NONE2"                                   =>16,
+        "SHARABLE"                                  =>8,
+        "EXPLORATION"                               =>4,
+        "PARTY_ACCEPT"                              =>2,
+        "STAY_ALIVE"                                =>1,   
+        "NONE"                                      =>0           
+
+    );
     
+    $object_type = array(
+        "null"                                          =>36,
+        "trapdoor"                                  =>35,
+        "Guildbank"                                 =>34,
+        "Destructable Bldg"                         =>33,
+        "Barber Chair"                              =>32,
+        "Dungeon Difficulty"                        =>31,
+        "Aura Generator"                            =>30,
+        "Capture Point"                             =>29,
+        "Lottery Kiosk"                             =>28,
+        "Custom Teleporter"                         =>27,
+        "Flagdrop"                                  =>26,
+        "Fishing Hole"                              =>25,
+        "Flagstand"                                 =>24,
+        "Meetingstone"                              =>23,
+        "Spellcaster"                               =>22,
+        "Guardpost"                                 =>21,
+        "Auctionhouse"                              =>20,
+        "Mailbox"                                   =>19,
+        "Summoning Ritual"                          =>18,
+        "Fishingnode"                               =>17,
+        "Dual Arbiter"                              =>16,
+        "Mo Transport"                              =>15,
+        "Map Object"                                =>14,
+        "Camera"                                    =>13,
+        "Areadamage"                                =>12,
+        "Transporter"                               =>11,
+        "Goober"                                    =>10,
+        "Text"                                      =>9,
+        "Spell Focus"                               =>8,
+        "Chair"                                     =>7,
+        "Trap"                                      =>6,
+        "Generic"                                   =>5,
+        "Binder"                                    =>4,
+        "Chest"                                     =>3,
+        "Quest Giver"                               =>2,
+        "Button"                                    =>1,
+        "Door"                                      =>0
+        
+    );
     
 ?>

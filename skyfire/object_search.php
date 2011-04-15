@@ -1,11 +1,8 @@
 <?php
-    
-    // LOAD A BASIC LANG SCRIPT
-    include('lang/en.php');
-    
-    // LOAD SITE SCRIPTS
     include('include/config.php');
-       
+    include('include/functions.php');
+    include('include/arrays.php');
+    include('lang/en.php');
 ?>
 <html>
     <head>
@@ -33,48 +30,48 @@
             <div id="col-l">
 
 
-               <div class="CntBox">
-                    <div class="CntHead">
-						<div class="CntHeadTitle">Quest Search</div>
-					</div>
+                 <!--### SOME CONTENT CRAP
+                                ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
+                <div class="CntBox">
+                    <div class="CntHead"><div class="CntHeadTitle"><?php echo O_TITLE;?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
                                 <form method="post">
-                                    <?php include('if_quest_search.php');?>
+                                    <?php include('if_object_search.php');?>
                                     <p/>                                    
                                 </form>                              
                              </div>
                         </div>
                         <div class="CntFooter"></div>
-                </div>
-					<?php if( ! isset($_POST['submit']))
-					{
-						/* REQUIRED FOR COSMETIC PURPOSES */
-						echo '</div>';
-					}?>    
-                                
-                           
+                    </div></div>    
+                
+                
                  <?php if(isset($_POST['submit'])){?>
                         
                     
                  <div class="CntBox">
-                    <div class="CntHead"><div class="CntHeadTitle">Search Results</div></div>
+                    <div class="CntHead"><div class="CntHeadTitle"><?php echo O_RESULTS;?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-                                    <?php include('if_quest_results.php');?>
+                                <form method="post">
+                                    <?php include('if_object_results.php');?>
+                                    <p/>                                    
+                                </form>                              
                              </div>
                         </div>
                         <div class="CntFooter"></div>
                     </div></div>    
                     <?php } ?>
-	
+                
+                <!--### RIGHT COLUMN -->
                 <div id="col-r">
 
                     <?php include('quest_submenu.php');?>
 
-
-                   <?php include('calc_mnu.php');?>
-                </div>  
+                    <?php include('calc_mnu.php');?>
+                
+                </div>
+                
                 
             <div class="clearB"></div>
 

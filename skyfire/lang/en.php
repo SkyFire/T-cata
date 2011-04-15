@@ -33,6 +33,9 @@
     define('Q_MNU_3'                    ,'Who/What gives you this quest');
     define('Q_MNU_4'                    ,'Who/Where do you turn this quest in at');
     
+    define('O_TITLE'                    ,'Object Search');
+    
+    
     define('G_MNU_1'                    ,'Game Object Secondary Menu');
     
     //CREATURE
@@ -42,6 +45,7 @@
     define('C_MNU_4'                    ,'Creature Model Information');
     define('C_MNU_5'                    ,'Creature Loot Information');
     define('C_MNU_6'                    ,'Quest creture is involved in as a taker/giver');
+    define('C_MNU_7'                    ,'Create New Creature');
     
     define('I_MNU_1'                    ,'Item Submenu');
     
@@ -57,4 +61,5 @@
     define('QUOTE'                      ,chr(34)); //THE DOUBLE QUOTE " NEEDED FOR PARSING STRINGS
     define('PAGE_TEST_WARNING'          ,'<span class="npcNames">WARNING:</span><font color="#ff0000"> - This page is untested - use caution</font><br/>');
     define('NOT_DONE'                   ,'<font color="#ff0000">*</font> Unfinished -> ');
+    define('SEARCH_RESULTS'             ,'Search Results');
 ?>

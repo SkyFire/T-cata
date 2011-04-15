@@ -2,10 +2,11 @@
     
 ?>
 <div class="NavBox">
-    <div class="NavHead"><div class="NavHeadTitle"><?php echo C_MNU_1;?></div></div>
+    <div class="NavHead"><div class="NavHeadTitle"><?php echo C_MNU_7;?></div></div>
         <div class="nav-menu">
             <ul>
-                <li class="Level1"><a href="creature_search.php">New Search</a></a></li>
+                <li class="Level2"><a href="creature_search.php">New Search</a></a></li>
+                <li class="Level1"><a href="creature_new.php">Create/Delete a Creature</a></a></li>
                 <?php if(isset($_REQUEST['npc'])){?>
                     <li class="Level2"><a href="creature_search.php?npc=<?php echo $_REQUEST['npc'];?>">Creature Template</a></li>
                     <li class="Level1"><a href="creature_location.php?npc=<?php echo $_REQUEST['npc'];?>">Creature Location</a></li>
