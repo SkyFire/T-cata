@@ -19,17 +19,12 @@
     if(isset($_POST['submit'])){
         
         $result = creature($_REQUEST['npc']);
-        //IF THEY CHANGE THE ENTRY, THEY ARE MAKING A NEW CREATURE SO WE'LL JUST DO IT ALL
-        //RIGHT HERE
-        if($_POST['entry'] != $result['entry']){
-            $sql = "INSERT INTO `quest_template` (`entry`) VALUE ($Entry)";
-            $sql = @mysql_query($sql) or die("Cannot Insert Entry Item<br/>See creature_template.PHP");
-            
-            //SAVE TO A TEXT FILE FOR DISPLAY CHANGES
-            saveSQL($sql,"creature_template.sql");
-        }
-        
-         updateRecords($_POST,$result,"creature_template","entry",$_REQUEST['npc']);
+       
+        /**
+		 * SCRIPT NOTE: REMOVED THE ADD NEW CREATURE SINCE IT HAS ITS OWN
+		 * SECTION
+		 * */
+		updateRecords($_POST,$result,"creature_template","entry",$_REQUEST['npc'],"Updating creature#".$_REQUEST['npc']);
             
         
         //RELOAD THE TABLE

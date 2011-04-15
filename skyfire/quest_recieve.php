@@ -32,7 +32,7 @@
 			$_POST[$itemname] = str_replace("'","",$_POST[$itemname]);
 		}
         
-        updateRecords($_POST,$result,"quest_template","entry",$_REQUEST['quest']);
+        updateRecords($_POST,$result,"quest_template","entry",$_REQUEST['quest'],"Updating quest#:$questID");
        
         //LOAD THE NEW RECORDS TO DISPLAY
         $questID = $_REQUEST['quest'];

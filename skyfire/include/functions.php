@@ -122,10 +122,13 @@ function itemName($id)
         fclose($handle);
     }
     
-    // USERDATA = AS PROVIDED BY '$_POST, $RESULT = FROM INIT
-    // TABLE WE ARE UPDATING, WHAT COMES AFTER WHERE
-    // REREF = WHAT ENTRY VARIABLE i.e. entry_id, id, creature_id etc..
-    function updateRecords($userData,$result,$table,$where_clause,$recRef)
+    /**
+     * USERDATA IS POST INFORMATION, RESULT= CURRENT DATA PULLED, TABLE CURRENTLY
+     * UPDATING,WHERE CLAUSE USED FOR 'WHERE = $WHERE_CLAUSE' WHERE_REF = WHAT LINE
+     * WE ARE UPDATING, REMARKS FOR THE SAVE FILE, TEXT=BOOLEAN(1,0) FOR THE SQL FORMAT
+     * OF WHERE_REF NUMBERS DON'T NEED ', TEXT DO.
+     * */
+    function updateRecords($userData,$result,$table,$where_clause,$where_reference,$remarks)
     {
 
         foreach($userData as $field => $userInfo)
@@ -133,7 +136,7 @@ function itemName($id)
            
             if($userInfo > "" && $field != "XXX" && $field != "submit")
             {
-                
+               
                 //SPECIAL HANDLING OF MULTI SELECT OPTIONS
                 // - RACES
                 // TODO: USE A SWITCH HERE ON $FIELD
@@ -143,13 +146,11 @@ function itemName($id)
                     //TO -1
                     if(array_sum($userInfo) >= 142){
                         $userInfo = -1;
-                        $sql = "UPDATE `$table` SET `$field` = -1 WHERE `$where_clause` = $recRef";
-                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
-                        saveSQL($sql,"SQL_UPDATES.SQL");
+                        $query = "UPDATE `$table` SET `$field` = -1 WHERE `$where_clause` = $where_reference";
+                        $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
                     }else{
-                        $sql = "UPDATE `$table` SET `$field` = ".array_sum($userInfo)." WHERE `$where_clause` = $recRef";
-                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
-                        saveSQL($sql,"SQL_UPDATES.SQL");
+                        $query = "UPDATE `$table` SET `$field` = ".array_sum($userInfo)." WHERE `$where_clause` = $where_reference";
+                        $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
                         
                     }
                 }else{
@@ -157,9 +158,9 @@ function itemName($id)
                     //ONLY UPDATE IF SOMETHING CHANGED
                     if($userInfo != $result[$field])
                     {
-                        $sql = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $recRef";
-                        $sql1 = mysql_query($sql) or die ("Bad Query:$sql<br>".mysql_error());
-                        saveSQL($sql,"SQL_UPDATES.SQL");
+                        $query = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $where_reference";
+                        $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
+                        saveSQL($query,$table.'_update.sql',$remarks);
                     }
                 }
             }

@@ -8,7 +8,7 @@
         
             <table>
                 <tr>
-                    <td >Entry<sup>1</sup><br><input type="text" name="entry" value="<?php echo $result['entry'];?>"></td>
+                    <td >Entry<br><span class="npcNames"><?php echo $result['entry'];?></span></td>
                     <td >difficulty_entry_1<br><input type="text" name="difficulty_entry_1" value="<?php echo $result['difficulty_entry_1'];?>"></td>
                     <td >difficulty_entry_2<br><input type="text" name="difficulty_entry_2" value="<?php echo $result['difficulty_entry_2'];?>"></td>
                     <td >difficulty_entry_3<br><input type="text" name="difficulty_entry_3" value="<?php echo $result['difficulty_entry_3'];?>"></td>
