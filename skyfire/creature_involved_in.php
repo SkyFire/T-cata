@@ -41,10 +41,10 @@
 		
 			switch ($quest_method){
 				case "giver":
-					$sql = "DELETE FROM `creature_questrelation` (`id`) VALUES ($id)";					
+					$sql = "DELETE FROM `creature_questrelation` WHERE `id` =  $id";					
 					break;
 				case "taker":
-					$sql = "DELETE FROM `creature_involvedrelation` (`id`) VALUES ($id)";
+					$sql = "DELETE FROM `creature_involvedrelation` WHERE `id` = $id";
 					break;
 				default:
 					die("Quest Deletion Error");
