@@ -30,27 +30,15 @@
             </tr><tr>
                 <td>locale<br/><input type="text" name="locale" value="<?php echo $result['locale'];?>"></td>
                 <td>recruiter<br/><input type="text" name="recruiter" value="<?php echo $result['recruiter'];?>"></td>            
-                <td>gmlevel<br/><input type="text" name="gmlevel" value="<?php echo $access['gmlevel'];?>"></td>
-                <td>RealmID<br/><input type="text" name="RealmID" value="<?php echo $access['RealmID'];?>"></td>
             </tr>
         </table>
 </fieldset>
 <p/>
-<fieldset>
-    <legend>Banned Information</legend>
-        <table>
-            <tr>
-                <td>bandate<br><input type="text" name="bandate" value="<?php echo $banned['bandate'];?>"></td>
-                <td>unbandate<br/><input type="text" name="unbandate" value="<?php echo $banned['unbandate'];?>"></td>
-                <td>bannedby<br/><input type="text" name="bannedby" value="<?php echo $banned['bannedby'];?>"></td>
-                <td>banreason<br/><input type="text" name="banreason" value="<?php echo $banned['banreason'];?>"></td>
-                <td>active<br/><input type="text" name="active" value="<?php echo $banned['active'];?>"></td>
-            </tr>
-        </table>
-</fieldset>
 <P><div align="right">
     
     <input type="submit" name="submit" value="Update" class="inputbtn">
         <input type="submit" name="delete" value="Delete" class="inputbtn">
 </div>
+<p>
+
 </form>

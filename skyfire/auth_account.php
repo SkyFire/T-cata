@@ -6,25 +6,8 @@
     $user_id = $_REQUEST['user'];
     $result = account($user_id);
     
-    /**
-     * SET UP INFO FOR ACCESS TABLE
-     * NOT SURE WHY THESE 3 LINES ARE SEPARATE
-     * */
-    $query = "SELECT * FROM `account_access` WHERE `id` = $user_id";
-    $sql = mysql_query($query);
-    $access = mysql_fetch_array($sql);
-    
-    /**
-     * SETUP BANNED INFORMATION
-     * */
-    $query = "SELECT * FROM `account_banned` WHERE `id` = $user_id";
-    $sql = mysql_query($query);
-    $banned = mysql_fetch_array($sql);
-    
-    
     if(isset($_POST['delete']) OR
-       isset($_POST['submit']) OR
-       isset($_POST['access']))
+       isset($_POST['submit']) )
     {
         if(isset($_POST['delete']))
         {
@@ -106,7 +89,7 @@
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
                     <div class="CntHead"><div class="CntHeadTitle">
-						Account Information</div></div>
+						Account Information for <?php echo $result['username'];?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
 								<?php include('if_auth_account.php');?>
