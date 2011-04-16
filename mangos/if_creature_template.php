@@ -181,7 +181,8 @@
             <fieldset>
                 <legend>Misc</legend>
                     <table class="resultsborder"><tr>
-                    <td class="tablefont" >VehicleId<br><input class="cinputbox"  type="text" name="VehicleId" value="<?php echo $result['VehicleId'];?>"></td></tr><tr>
+                    <td class="tablefont" >unk16<br><input class="cinputbox"  type="text" name="unk16" value="<?php echo $result['unk16'];?>"></td></tr><tr>
+                    <td class="tablefont" >unk17<br><input class="cinputbox"  type="text" name="unk17" value="<?php echo $result['unk17'];?>"></td></tr><tr>
                     <td class="tablefont" >PetSpellDataId<br><input class="cinputbox"  size="5" type="text" name="PetSpellDataId" value="<?php echo $result['PetSpellDataId'];?>"></td>
                 </tr></table>
 

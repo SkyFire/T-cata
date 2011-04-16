@@ -24,12 +24,13 @@
             </tr><tr>
                 <td>locked<br/><input type="text" name="locked" value="<?php echo $result['locked'];?>"></td>
                 <td>last_login<br/><input type="text" name="last_login" value="<?php echo $result['last_login'];?>"></td>
-                <td>online<br/><input type="text" name="online" value="<?php echo $result['online'];?>"></td>
                 <td>expansion<br/><input type="text" name="expansion" value="<?php echo $result['expansion'];?>"></td>
                 <td>mutetime<br/><input type="text" name="mutetime" value="<?php echo $result['mutetime'];?>"></td>                
             </tr><tr>
+                <td>active_realm_id<br/><input type="text" name="active_realm_id" value="<?php echo $result['active_realm_id'];?>"></td>
+                <td>gmlevel<br/><input type="text" name="gmlevel" value="<?php echo $result['gmlevel'];?>"></td>
                 <td>locale<br/><input type="text" name="locale" value="<?php echo $result['locale'];?>"></td>
-                <td>recruiter<br/><input type="text" name="recruiter" value="<?php echo $result['recruiter'];?>"></td>            
+                <td>expansion<br/><input type="text" name="expansion" value="<?php echo $result['expansion'];?>"></td>            
             </tr>
         </table>
 </fieldset>

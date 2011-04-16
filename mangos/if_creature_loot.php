@@ -63,7 +63,7 @@
     <fieldset>
         <legend>Click to change existing data</legend>
             <table cellpadding="5"><tr>
-            <td>entry</td><td>item</td><td>name</td><td>Drop %</td><td>lootmode</td>
+            <td>entry</td><td>item</td><td>name</td><td>Drop %</td><td>lootcondition</td>
             <td>groupid</td><td>min</td><td>max</td></tr><tr>
             <?php
                 //GET CREATURE AND ITS LOOT
@@ -77,7 +77,7 @@
                     echo "<td class=\"$class\"><a href=\"creature_loot.php?npc=$id&ci=".$result['item']."\">".$result['item']."</a></td>";
                     echo "<td class=\"$class\"><a href=\"creature_loot.php?npc=$id&ci=".$result['item']."\">".itemName($result['item'])."</a></td>";
                     echo "<td class=\"$class\">".$result['ChanceOrQuestChance']."</td>";
-                    echo "<td class=\"$class\">".$result['lootmode']."</td>";
+                    echo "<td class=\"$class\">".$result['lootcondition']."</td>";
                     echo "<td class=\"$class\">".$result['groupid']."</td>";
                     echo "<td class=\"$class\">".$result['mincountOrRef']."</td>";
                     echo "<td class=\"$class\">".$result['maxcount']."</td></tr><tr>";

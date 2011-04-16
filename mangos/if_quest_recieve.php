@@ -44,7 +44,7 @@
                     <table>
                         <tr>
                             <td>RequiredRaces<br/><input type="text" value="<?php echo $result['RequiredRaces'];?>" name="RequiredRaces" ></td>
-                            <td>SkillOrClassMask<br/><input type="text" value="<?php echo $result['SkillOrClassMask'];?>" name="SkillOrClassMask" ></td>
+                            <td>RequiredSkill<br/><input type="text" value="<?php echo $result['RequiredSkill'];?>" name="RequiredSkill" ></td>
                         </tr><tr>
                             <td>MinLevl<br/><input type="text" value="<?php echo $result['MinLevel'];?>" name="MinLevel"></td>
                             <td>QuestLevel<br/><input type="text" value="<?php echo $result['QuestLevel'];?>" name="QuestLevel"></td>
