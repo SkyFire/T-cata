@@ -1,17 +1,39 @@
 <?php
-    include('include/config.php');
-    include('lang/en.php');
-    include('include/functions.php');
     
-    $user_id = $_REQUEST['user'];
-    $result = account($user_id);
+    // LOAD A BASIC LANG SCRIPT
+    include('lang/en.php');    
+    include('include/config.php');   
+   include('include/functions.php');
     
-    if(isset($_POST['submit']))
-    {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
+     $id = $_REQUEST['npc'];
+     
+    
+    mysql_selectdb(SQL_WORLD_DATABASE);
+    $sql = mysql_query("SELECT * FROM creature_onkill_reputation WHERE creature_id=".$id) or die(mysql_error());
+    $result = mysql_fetch_array($sql);
+    
+    
+    
+    if(isset($_POST['submit'])){
+        
+        //SEE IF THEY ENTERED AN ID THAT DOES NOT EXIST
+        if($_POST['creature_id'] != $result['creature_id']){
+            
+            //IF SO, ADD IT TO THE DB
+            $creatureID = $_POST['creature_id'];
+            $sql = "INSERT INTO creature_onkill_reputation (`entry_id`) VALUES ($creatureID)";
+            $sql1 = mysql_query($sql1) or die ("bad query<br>$sql<br>".mysql_error());            
+        }
+        
+        updateRecords($_POST,$result,"creature_onkill_reputation","creature_id",$_POST['creature_id']);
+        
+        
+        //UPDATE TO SHOW CHANGES
+         $sql = mysql_query("SELECT * FROM creature_onkill_reputation WHERE creature_id=".$id) or die(mysql_error());
+        $result = mysql_fetch_array($sql);
     }
     
-    
+   
 ?>
 <html>
     <head>
@@ -42,11 +64,11 @@
                  <!--### SOME CONTENT CRAP
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
-                    <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+                    <div class="CntHead"><div class="CntHeadTitle"><?php echo C_MNU_3;?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
+                               
+                            <?php include('if_creature_onkill_reputation.php');?>
                                
                             </div>
                         </div>
@@ -57,7 +79,7 @@
                 <!--### RIGHT COLUMN -->
                 <div id="col-r">
 
-                    <?php include('auth_submenu.php');?>
+                    <?php include('creature_submenu.php');?>
                     <?php include('calc_mnu.php');?>
 
                 </div>  

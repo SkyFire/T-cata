@@ -1,16 +1,6 @@
 <?php
     include('include/config.php');
-    include('lang/en.php');
     include('include/functions.php');
-    
-    $user_id = $_REQUEST['user'];
-    $result = account($user_id);
-    
-    if(isset($_POST['submit']))
-    {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
-    }
-    
     
 ?>
 <html>
@@ -43,10 +33,10 @@
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
                     <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+						Server Authorization</div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
+								<?php include('if_auth.php');?>
                                
                             </div>
                         </div>

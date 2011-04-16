@@ -1,17 +1,8 @@
 <?php
     include('include/config.php');
     include('lang/en.php');
+    include('include/settings.php');
     include('include/functions.php');
-    
-    $user_id = $_REQUEST['user'];
-    $result = account($user_id);
-    
-    if(isset($_POST['submit']))
-    {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
-    }
-    
-    
 ?>
 <html>
     <head>
@@ -42,27 +33,32 @@
                  <!--### SOME CONTENT CRAP
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
-                    <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+                    <div class="CntHead"><div class="CntHeadTitle">Create a New Creature</div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
-                               
-                            </div>
+                                    <?php include('if_creature_new.php');?>
+                             </div>
                         </div>
                         <div class="CntFooter"></div>
                     </div></div>    
                            
                 <!--### END OF CONTENT STUFF -->
+                
+                
                 <!--### RIGHT COLUMN -->
                 <div id="col-r">
 
-                    <?php include('auth_submenu.php');?>
-                    <?php include('calc_mnu.php');?>
+                    <?php include('creature_submenu.php');?>
 
-                </div>  
+                    <?php include('calc_mnu.php');?>
+                
+                </div>
+                
                 
             <div class="clearB"></div>
+
+
+
 
             <div id="footer">
                 <div id="ft-Info">

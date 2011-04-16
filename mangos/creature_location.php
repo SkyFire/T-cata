@@ -1,17 +1,41 @@
 <?php
-    include('include/config.php');
+    
+    // LOAD A BASIC LANG SCRIPT
     include('lang/en.php');
-    include('include/functions.php');
     
-    $user_id = $_REQUEST['user'];
-    $result = account($user_id);
+    // LOAD SITE SCRIPTS
+    include('include/config.php');
     
-    if(isset($_POST['submit']))
-    {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
+    if(isset($_REQUEST['npc'])){
+        include('include/functions.php');
     }
     
+     $id = $_REQUEST['npc'];
+     
+    mysql_selectdb(SQL_WORLD_DATABASE);
+    $sql = mysql_query("SELECT * FROM creature WHERE id=".$id) or die(mysql_error());
+    $result = mysql_fetch_array($sql) or die("bad fetch:$result<br/>".mysql_error());
     
+    
+    
+    //DUMMY STATUS MSG
+    $status = "";
+    
+    
+    if(isset($_POST['submit'])){
+
+        $creatureID = $_REQUEST['npc'];
+        $userData = $_POST;
+        
+        parseData("if_creature_loc.php",$userData,"creature",$creatureID,"id");
+        
+        //RELOAD DATA
+         $id = $_REQUEST['npc'];
+        mysql_selectdb(SQL_WORLD_DATABASE);
+        $sql = mysql_query("SELECT * FROM creature WHERE id=".$id) or die(mysql_error());
+        $result = mysql_fetch_array($sql) or die("bad fetch:$result<br/>".mysql_error()); 
+    }
+       
 ?>
 <html>
     <head>
@@ -42,11 +66,11 @@
                  <!--### SOME CONTENT CRAP
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
-                    <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+                    <div class="CntHead"><div class="CntHeadTitle"><?php echo C_MNU_2;?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
+                               
+                              <?php include('if_creature_loc.php');?>
                                
                             </div>
                         </div>
@@ -57,7 +81,7 @@
                 <!--### RIGHT COLUMN -->
                 <div id="col-r">
 
-                    <?php include('auth_submenu.php');?>
+                    <?php include('creature_submenu.php');?>
                     <?php include('calc_mnu.php');?>
 
                 </div>  

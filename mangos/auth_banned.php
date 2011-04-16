@@ -6,9 +6,13 @@
     $user_id = $_REQUEST['user'];
     $result = account($user_id);
     
+    $query = "SELECT * FROM `account_banned` WHERE `id` = $user_id";
+    $sql = mysql_query($query);
+    $banned = mysql_fetch_array($sql);
+    
     if(isset($_POST['submit']))
     {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
+        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"account_banned","id",$account_id,""); 
     }
     
     
@@ -43,10 +47,10 @@
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
                     <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+						Account Information for <?php echo $result['username'];?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
+								<?php include('if_auth_banned.php');?>
                                
                             </div>
                         </div>

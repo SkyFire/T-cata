@@ -1,17 +1,39 @@
 <?php
-    include('include/config.php');
+    
+    // LOAD A BASIC LANG SCRIPT
     include('lang/en.php');
-    include('include/functions.php');
     
-    $user_id = $_REQUEST['user'];
-    $result = account($user_id);
+    // LOAD SITE SCRIPTS
+    include('include/config.php');
     
-    if(isset($_POST['submit']))
-    {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"ip_banned","id",$account_id,""); 
+    if(isset($_REQUEST['npc'])){
+        include('include/functions.php');
     }
     
     
+    
+    //DUMMY STATUS MSG
+    $status = "";
+    
+    //PUMP IN THE DATA UPDATES :-)
+    if(isset($_POST['submit'])){
+        
+        $result = creature($_REQUEST['npc']);
+       
+        /**
+		 * SCRIPT NOTE: REMOVED THE ADD NEW CREATURE SINCE IT HAS ITS OWN
+		 * SECTION
+		 * */
+		updateRecords($_POST,$result,"creature_template","entry",$_REQUEST['npc'],"Updating creature#".$_REQUEST['npc']);
+            
+        
+        //RELOAD THE TABLE
+        $result = creature($_REQUEST['npc']);
+        
+        //UPDATE STATUS MSG
+        $status = "<font color=#00ff00>Update Successful</font>&nbsp;&nbsp;-&nbsp;&nbsp;";
+    }
+       
 ?>
 <html>
     <head>
@@ -43,10 +65,23 @@
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
                     <div class="CntHead"><div class="CntHeadTitle">
-						IP Ban Information</div></div>
+                    
+                    <?php
+                        if(isset($_REQUEST['npc'])){
+                            echo $status."Creature Information";
+                        }else{
+                            echo $status."Search For Quest";
+                        }?>
+                    </div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">
-								<?php include('if_auth_ipban.php');?>
+                               
+                              <?php
+                                if(isset($_REQUEST['npc'])){
+                                    include('if_creature_template.php');
+                                }else{
+                                    include('if_creature_search.php');
+                                }?>
                                
                             </div>
                         </div>
@@ -57,12 +92,15 @@
                 <!--### RIGHT COLUMN -->
                 <div id="col-r">
 
-                    <?php include('auth_submenu.php');?>
+                    <?php include('creature_submenu.php');?>
                     <?php include('calc_mnu.php');?>
 
                 </div>  
                 
             <div class="clearB"></div>
+
+
+
 
             <div id="footer">
                 <div id="ft-Info">

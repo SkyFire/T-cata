@@ -19,7 +19,8 @@
             (visit <a href="http://www.projectskyfire.org">Project SkyFire for more information</a>)
         </small>
     </p>
-        MANGOS (comming soon...)
+        <a href="mangos">MANGOS</a><br/>
+        (visit <a href="http://www.getmangos.com">Get Mangos</a>)
         
         
         <p/>
