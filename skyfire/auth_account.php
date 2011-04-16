@@ -6,7 +6,25 @@
     $user_id = $_REQUEST['user'];
     $result = account($user_id);
     
-    if(isset($_POST['delete']) OR isset($_POST['submit']))
+    /**
+     * SET UP INFO FOR ACCESS TABLE
+     * NOT SURE WHY THESE 3 LINES ARE SEPARATE
+     * */
+    $query = "SELECT * FROM `account_access` WHERE `id` = $user_id";
+    $sql = mysql_query($query);
+    $access = mysql_fetch_array($sql);
+    
+    /**
+     * SETUP BANNED INFORMATION
+     * */
+    $query = "SELECT * FROM `account_banned` WHERE `id` = $user_id";
+    $sql = mysql_query($query);
+    $banned = mysql_fetch_array($sql);
+    
+    
+    if(isset($_POST['delete']) OR
+       isset($_POST['submit']) OR
+       isset($_POST['access']))
     {
         if(isset($_POST['delete']))
         {
