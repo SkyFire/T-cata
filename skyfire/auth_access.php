@@ -12,7 +12,7 @@
     
     if(isset($_POST['submit']))
     {
-        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"account","id",$account_id,""); 
+        updateRecords($_POST,$result,SQL_AUTH_DATABASE,"account_access","id",$account_id,""); 
     }
     
     
