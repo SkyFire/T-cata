@@ -8,7 +8,7 @@
                 <li class="Level1"><a href="auth.php">New User Search</a></a></li>
                 <?php if(isset($_REQUEST['user'])){?>
                     <li class="Level2"><a href="auth_account.php?user=<?php echo $_REQUEST['user'];?>">Account Information</a></li>
-                    <li class="Level1"><a href="auth_access?user=<?php echo $_REQUEST['user'];?>"><?php echo NOT_DONE;?>Account Access</a></li>
+                    <li class="Level1"><a href="auth_access.php?user=<?php echo $_REQUEST['user'];?>"><?php echo NOT_DONE;?>Account Access</a></li>
                     <li class="Level2"><a href="auth_banned.php?user=<?php echo $_REQUEST['user'];?>"><?php echo NOT_DONE;?>Account Banned</a></li>
                     <li class="Level1"><a href="auth_ip_banned.php?user=<?php echo $_REQUEST['user'];?>"><?php echo NOT_DONE;?>IP Banned</a></li>
                     <li class="Level2"><a href="auth_logs.php?user=<?php echo $_REQUEST['user'];?>"><?php echo NOT_DONE;?>Logs</a></li>
