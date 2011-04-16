@@ -1,31 +1,15 @@
 <?php
-/*
-function sqlUpdate($Entry,$FieldName,$UserValue){
-    //UPDATE THE DATABASE
-    $sql1 = "UPDATE quest_template SET $FieldName = '$UserValue' WHERE entry=$Entry";
-    $sql = mysql_query($sql1) or die("Bad Query in functions sqlUpdate:$sql1<br/>".mysql_error());
-      
-    //SAVE TO A TEXT FILE FOR DISPLAY CHANGES
-    //date("F j, Y, g:i a");                 // March 10, 2001, 5:16 pm
-    $fn = 'sql_updates.txt';
-    $fh=fopen($fn,"a+");
-    fwrite($fh,date("D M j G:i:s")." - UPDATE `quest_template` SET `$FieldName` = $UserValue WHERE `entry`=$Entry" .";\n");
-    fclose($fh);
+/**
+ *RETURN USER INFO FROM AUTH.ACCOUNT
+ **/
+function account($id)
+{
+    mysql_selectdb(SQL_AUTH_DATABASE);
+    $query = "SELECT * FROM `account` WHERE `id` = $id";
+    $sql = mysql_query($query);
+    return mysql_fetch_array($sql);
+    
 }
-
-// UPDATE CREATURE DATABASE
-// TODO: COMBINE WITH SQLUPDATE
-function sqlCUpdate($FieldName,$UserValue){
-        //UPDATE THE DATABASE
-        $sql1 = "UPDATE creature_template SET $FieldName = '$UserValue' WHERE entry=".$_REQUEST['npc'];
-        $sql = mysql_query($sql1) or die("Bad Query:$sql1<br/>".mysql_error());
-        
-        //SAVE TO A TEXT FILE FOR DISPLAY CHANGES
-        $fh=fopen("quest_template.txt","a+");
-        fwrite($fh,"UPDATE `creature_template` SET `$FieldName` = $UserValue WHERE `entry`=".$_REQUEST['npc'].";\n");
-        fclose($fh);
-}
-*/
 
 /**
  *RETURN INFORMATION (ARRAY) ABOUT QUEST:questid
@@ -128,13 +112,17 @@ function itemName($id)
      * WE ARE UPDATING, REMARKS FOR THE SAVE FILE, TEXT=BOOLEAN(1,0) FOR THE SQL FORMAT
      * OF WHERE_REF NUMBERS DON'T NEED ', TEXT DO.
      * */
-    function updateRecords($userData,$result,$table,$where_clause,$where_reference,$remarks)
+    function updateRecords($userData,$result,$database,$table,$where_clause,$where_reference,$remarks)
     {
-
+        mysql_selectdb($database);
+        
         foreach($userData as $field => $userInfo)
         {
            
-            if($userInfo > "" && $field != "XXX" && $field != "submit")
+            if(
+               $userInfo > "" &&
+               $field != "XXX" &&
+               $field != "submit")
             {
                
                 //SPECIAL HANDLING OF MULTI SELECT OPTIONS

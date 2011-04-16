@@ -58,7 +58,7 @@
 		$query = mysql_query($sql) or die("Bad Query creature involved in<br>$sql<br/>".mysql_error());
 		
 		//EXPORT TO TEXT FILE
-		saveSQL($sql,"creature_involed_updates.sql");
+		saveSQL($sql,"creature_involed_updates.sql","");
 	   
 	   
     }//SUBMIT

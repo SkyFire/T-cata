@@ -9,5 +9,5 @@
     <li><a href="item_search.php"><?php echo MNU_ITEM;?></a></li>
     <li><a href="object_search.php"><?php echo MNU_GAMEOBJECT;?></a></li>
     <li><a href="#">Characters</a></li>
-    <li><a href="#">Auth</a></li>
+    <li><a href="auth.php">Auth</a></li>
 </ul>
