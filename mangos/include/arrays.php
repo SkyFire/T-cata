@@ -40,12 +40,11 @@
         "UNK_0x80"          =>128,          "SPELLTRIGGER"          =>64,
         "TOTEM"             =>32,           "DEPRECIATED_ITEM"      =>16,
         "UNK_0x08"          =>8,            "OPENABLE"              =>4,
-        "CONJURED"          =>2,            "BINDED"                =>1     
+        "CONJURED"          =>2,            "BONDED"                =>1     
         
     );// MAX FOR -1 16,777,215
     
     $races = array(
-        "WORGEN"                                    => 22,
         "SKELETON"                                  => 15,
         "BROKEN"                                    => 14,
         "NAGA"                                      => 13,
@@ -144,7 +143,7 @@
     );
     
     $object_type = array(
-        "null"                                          =>36,
+        "null"                                      =>36,
         "trapdoor"                                  =>35,
         "Guildbank"                                 =>34,
         "Destructable Bldg"                         =>33,
