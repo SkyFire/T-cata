@@ -1,6 +1,7 @@
 //HOW HARD IS IT FOR MS TO MAKE A % HEIGHT LIKE THEY DO WITH
 //BELOW WILL HOPEFULLY FIX THIS OR T-CATA WILL LOOK VERY WERID.
 //IF WORKS WITH FF - YOUR ON YOUR OWN WITH ANY OTHER BROWSERS
+//http://www.codingforums.com/archive/index.php/t-95086.html
 function setIframeHeight(iframeName) {
 	//var iframeWin = window.frames[iframeName];
 	var iframeEl = document.getElementById? document.getElementById(iframeName): document.all? document.all[iframeName]: null;
@@ -30,3 +31,21 @@ function alertSize() {
 	//window.alert( 'Height = ' + myHeight );
 	return myHeight;
 }
+
+function sizeToMyContent( ifRef, setW, setH, fMargin ) { //alert(ifRef);
+		var ifDoc, margin = typeof fMargin === 'number' ? fMargin : 6; 
+		try { 
+			ifDoc = document.getElementById(ifRef).contentWindow.document.documentElement;
+			}
+		catch( e ) { 
+			ifDoc = null;
+			}		
+		if( ifDoc ) {    
+			if( setH ) {
+				document.getElementById(ifRef).height = ifDoc.scrollHeight + margin + "px"; 
+				}
+			if( setW ) {
+				document.getElementById(ifRef).width = ifDoc.scrollWidth + margin + "px";
+				}
+			}  
+		}

@@ -1,9 +1,6 @@
 <?php
     
-    include('include/functions.php');
-    include('include/config.php');
-    include('lang/en.php');
-    
+    include('init.php');
     //GET THE ID SENT
     $questID = $_REQUEST['quest'];
     $quest = quest($questID);
@@ -22,9 +19,7 @@
     //FLAG FOR A GIVER
     $giver = 1;
     
-    $who = Q_GIVER;
-    
     //GO TO COMMON QUEST CREATURS
-    include('quest_creatures.php');
+    header('location:quest_creatures.php?quest='.$questID.'&npc='.$result['id']);
 
 ?>

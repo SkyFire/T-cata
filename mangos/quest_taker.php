@@ -1,8 +1,6 @@
 <?php
     
-    include('include/functions.php');
-    include('include/config.php');
-    include('lang/en.php');
+    include('init.php');
     
     //GET THE ID SENT
     $questID = $_REQUEST['quest'];
@@ -11,7 +9,6 @@
     //CONNECT TO THE WORLD
     @mysql_selectdb(SQL_WORLD_DATABASE) or
         die("Bad Database IN quest_taker.php".mysql_error());
-     
         
     //FIND OUR NPC ID
     $sql = "SELECT * FROM creature_involvedrelation WHERE quest='$questID'";
@@ -23,10 +20,6 @@
     //FLAG FOR A GIVER
     $giver = -1;
     
-    $who = Q_TAKER;
-    
-    
     //GO TO COMMON QUEST CREATURS
-    include('quest_creatures.php');
-
+    header('location:quest_creatures.php?quest='.$questID.'&npc='.$result['id']);
 ?>
