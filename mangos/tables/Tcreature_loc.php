@@ -55,3 +55,16 @@
 </fieldset>
 <p/><div align="right"><input type="submit" name="submit" value="Update" class="inputbtn"></div>   
 </form>
+<fieldset>
+    <legend>Other Locations by guid</legend>
+        <table>
+            <tr>
+                <td>guid</td><td><td>map</td><td>posX</td><td>posY</td><td>posZ</td><td>Or</td>
+                <td>Eq</td><td>SpwnSec</td><td>spwndist</td><td>Hlth</td><td>DS</td><td>MvTp</td>
+                <td>Cmana</td><td>ph</td><td>mid</td>
+            </tr>
+            <?php
+                die("query $query");
+            ?>
+        </table>
+</fieldset>
