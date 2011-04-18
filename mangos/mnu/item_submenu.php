@@ -9,7 +9,7 @@
                 <?php if(isset($_REQUEST['item'])){?>
                     <li class="Level2"><a href="item_template.php?item=<?php echo $_REQUEST['item'];?>">Item Template</a></li>
                     <li class="Level1"><a href="item_loot.php?item=<?php echo $_REQUEST['item'];?>"><?php echo NOT_DONE;?>Item Loot</a></li>
-                    <li class="Level2"><a href="item_disenchant_loot.php?item=<?php echo $_REQUEST['item'];?>"><?php echo NOT_DONE;?>Disenchant Loot</a></li>
+                    <li class="Level2"><a href="item_disenchant_loot.php?item=<?php echo $_REQUEST['item'];?>">Disenchant Loot</a></li>
                     <li class="Level1"><a href="item_prosp_loot.php?item=<?php echo $_REQUEST['item'];?>"><?php echo NOT_DONE;?>Prospecting Loot</a></li>
                     <li class="Level2"><a href="item_milling_loot.php?item=<?php echo $_REQUEST['item'];?>"><?php echo NOT_DONE;?>Milling Loot</a></li>
                     <li class="Level1"><a href="item_ref_loot.php"><?php echo NOT_DONE;?>Reference Loot</a></li>

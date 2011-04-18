@@ -6,6 +6,14 @@ function err($query,$mysqlerr)
     die("<p/>Bad query:<br/>$query<p/>$mysqlerr");
 }
 
+function item($id)
+{
+    mysql_selectdb(SQL_WORLD_DATABASE);
+    $query = "SELECT * FROM `item_template` WHERE `entry` = $id";
+    $sql = mysql_query($query) or die("bad query<br>$query<br/>".mysql_error());
+    return mysql_fetch_array($sql);
+}
+
 /**
  * MULTI : 1=yes, 0=no Used for Multi Select menus
  * SIZE : If multi, size shown, if MULIT=0, this is ignored
