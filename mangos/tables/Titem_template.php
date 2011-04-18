@@ -84,9 +84,29 @@
         <legend>Requirements</legend>
             <table>
                 <tr>
-                    <td rowspan="2" ><a href="javascript:popUp('include/calc.php?race=<?php echo $result['AllowableRace'];?>&item=<?php echo $item_id;?>&field=AllowableRace&array=races',800,400);">AllowableRace</a> <br/><input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"</td>
+                    <td rowspan="2" >
+                        <a href="
+                            <?php
+                                $link = "include/calc.php?race=".$result['AllowableRace'];
+                                $link .= "&field=AllowableRace";
+                                $link .= "&array=races";
+                                $link .= "&table=item_template";
+                                $link .= "&wc=entry";
+                                $link .= "&ri=".$item_id;
+                                echo "javascript:popUp('".$link."',800,400);\">";?>
+                                        AllowableRace</a> <br/><input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"</td>
                     
-                    <td rowspan="2" ><a href="javascript:popUp('include/calc.php?class=<?php echo $result['AllowableClass'];?>&item=<?php echo $item_id;?>&field=AllowableClass&array=classes',800,300);">AllowableClass</a><br/><input type="text" name="AllowableClass" value="<?php echo $result['AllowableClass'];?>"</td>
+                    <td rowspan="2" >
+                        <a href="
+                            <?php
+                                $link = "include/calc.php?race=".$result['AllowableClass'];
+                                $link .= "&field=AllowableClass";
+                                $link .= "&array=classes";
+                                $link .= "&table=item_template";
+                                $link .= "&wc=entry";
+                                $link .= "&ri=".$item_id;
+                                echo "javascript:popUp('".$link."',800,400);\">";?>
+                                        AllowableClass</a><br/><input type="text" name="AllowableClass" value="<?php echo $result['AllowableClass'];?>"</td>
                     </td>
                     <td colspan="2">RequiredReputationFaction<br><input type="text" name="RequiredReputationFaction" value="<?php echo $result['RequiredReputationFaction'];?>"></td>
                     <td colspan="2">RequiredReputationRank<br><input type="text" name="RequiredReputationRank" value="<?php echo $result['RequiredReputationRank'];?>"></td>

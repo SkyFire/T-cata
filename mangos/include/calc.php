@@ -3,9 +3,11 @@
     require('../init.php');
     include('arrays.php');
     
-    $item_id = $_REQUEST['item'];
-    $field_name = $_REQUEST['field'];
-    $array = $_REQUEST['array'];
+    $field_name     = $_REQUEST['field'];
+    $array          = $_REQUEST['array'];
+    $table          = $_REQUEST['table'];
+    $where_clause   = $_REQUEST['wc'];
+    $row_id         = $_REQUEST['ri'];
     
     switch ($array)
     {
@@ -16,12 +18,12 @@
             $array = $races;
             break;
         default:
-            die("bug in switch calcl");
+            die("bug in switch calcl $array");
             break;
     }
     
     mysql_selectdb(SQL_WORLD_DATABASE);
-    $query = "SELECT * FROM `item_template` WHERE `entry` = $item_id";
+    $query = "SELECT * FROM `$table` WHERE `$where_clause` = $row_id";
     $sql = mysql_query($query) or die("bad query<br>$query<br>".mysql_error());
     $result = mysql_fetch_array($sql);
     $calc_result = $result[$field_name];

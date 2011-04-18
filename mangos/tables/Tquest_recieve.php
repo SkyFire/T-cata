@@ -55,7 +55,16 @@
                 <legend>Zone,Sort,Level</legend>
                     <table>
                         <tr>
-                            <td>RequiredRaces<br/><input type="text" value="<?php echo $result['RequiredRaces'];?>" name="RequiredRaces" ></td>
+                            <td><a href="
+                                <?php
+                                $link = "include/calc.php?race=".$result['RequiredRaces'];
+                                $link .= "&field=RequiredRaces";
+                                $link .= "&array=races";
+                                $link .= "&table=quest_template";
+                                $link .= "&wc=entry";
+                                $link .= "&ri=".$quest_id;
+                                echo "javascript:popUp('".$link."',800,400);\">";?>
+                                RequiredRaces</a><br/><input type="text" value="<?php echo $result['RequiredRaces'];?>" name="RequiredRaces" ></td>
                             <td>RequiredSkill<br/><input type="text" value="<?php echo $result['RequiredSkill'];?>" name="RequiredSkill" ></td>
                         </tr><tr>
                             <td>MinLevl<br/><input type="text" value="<?php echo $result['MinLevel'];?>" name="MinLevel"></td>
