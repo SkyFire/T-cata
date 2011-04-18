@@ -44,3 +44,11 @@
  UPDATE `item_template` SET `BagFamily` = 16 WHERE `entry` = 2888
 -- --Mon Apr 18 10:20:28 
  UPDATE `item_template` SET `AllowableRace` = -1 WHERE `entry` = 2888
+-- --Mon Apr 18 13:09:00 
+ UPDATE `item_template` SET `maxcount` = 3 WHERE `entry` = 25281
+-- --Mon Apr 18 13:09:04 
+ UPDATE `item_template` SET `maxcount` = 0 WHERE `entry` = 25281
+-- --Mon Apr 18 13:12:35 
+ UPDATE `item_template` SET `maxcount` = 3 WHERE `entry` = 25281
+-- --Mon Apr 18 13:12:39 
+ UPDATE `item_template` SET `maxcount` = 0 WHERE `entry` = 25281
