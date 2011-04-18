@@ -98,7 +98,7 @@ function updateRecords($userData,$result,$database,$table,$where_clause,$where_r
             $field != "XXX" &&
             $field != "submit")
         {
-               
+              /* 
             //SPECIAL HANDLING OF MULTI SELECT OPTIONS
             // - RACES
             // TODO: USE A SWITCH HERE ON $FIELD
@@ -116,7 +116,7 @@ function updateRecords($userData,$result,$database,$table,$where_clause,$where_r
                         
                 }
             }else{
-                
+              */
                 //ONLY UPDATE IF SOMETHING CHANGED
                 if($userInfo != $result[$field])
                 {
@@ -124,7 +124,7 @@ function updateRecords($userData,$result,$database,$table,$where_clause,$where_r
                     $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
                     saveSQL($query,$table.'_update.sql',$remarks);
                 }
-            }
+            /*}*/
         }
     }    
 }

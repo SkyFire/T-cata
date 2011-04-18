@@ -1,10 +1,21 @@
 <?php
     include('include/arrays.php');
-    mysql_selectdb(SQL_WORLD_DATABASE);
     
-    $query = "SELECT * FROM `item_template` WHERE `entry` = ".$_REQUEST['item'];
-    $sql = mysql_query($query) or die(mysql_error());
+    $item_id = $_REQUEST['item'];
+    
+    mysql_selectdb(SQL_WORLD_DATABASE);
+    $query = "SELECT * FROM `item_template` WHERE `entry` = $item_id";
+    $sql = mysql_query($query) or die("Bad query<br/>$query<br/>".mysql_error());
     $result = mysql_fetch_array($sql);
+    
+    if (isset($_POST['submit']))
+    {
+        updateRecords($_POST,$result,SQL_WORLD_DATABASE,"item_template","entry",$item_id,"");
+        $query = "SELECT * FROM `item_template` WHERE `entry` = $item_id";
+        $sql = mysql_query($query) or die("Bad query<br/>$query<br/>".mysql_error());
+        $result = mysql_fetch_array($sql);
+    }
+    
 ?>
 <form method="post">
     <fieldset>
@@ -90,7 +101,7 @@
                     <td rowspan="2" >AllowableRace<br/><input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"><br/>
                         <!-- <input type="text" name="AllowableRace" value="<?php //echo $result['AllowableRace'];?>"><br/>-->
                         
-                        <select multiple="multiple" size="5" name="AllowableRace[]">
+                        <select multiple="multiple" size="5" ">
                         <?php
                             $tmpFlags = $result['AllowableRace'];
                         
@@ -130,19 +141,19 @@
                         ?>
                         </select>
                     </td>
-                    <td colspan="2">ReqRepFaction<br><input type="text" name="RequiredReputationFaction" value="<?php echo $result['RequiredReputationFaction'];?>"></td>
-                    <td colspan="2">ReqRepRank<br><input type="text" name="RequiredReputationRank" value="<?php echo $result['RequiredReputationRank'];?>"></td>
-                    <td colspan="2">reqpell<br><input type="text" name="requiredspell" value="<?php echo $result['requiredspell'];?>"></td>
+                    <td colspan="2">RequiredReputationFaction<br><input type="text" name="RequiredReputationFaction" value="<?php echo $result['RequiredReputationFaction'];?>"></td>
+                    <td colspan="2">RequiredReputationRank<br><input type="text" name="RequiredReputationRank" value="<?php echo $result['RequiredReputationRank'];?>"></td>
+                    <td colspan="2">requiredspell<br><input type="text" name="requiredspell" value="<?php echo $result['requiredspell'];?>"></td>
                     
                 </tr><tr>
-                    <td colspan="2">ReqDisenchSkill<br><input type="text" name="RequiredDisenchantSkill" value="<?php echo $result['RequiredDisenchantSkill'];?>"></td>
-                    <td colspan="2">ReqCityRank<br><input type="text" name="RequiredCityRank" value="<?php echo $result['RequiredCityRank'];?>"></td>
-                    <td colspan="2">reqhonorrank<br><input type="text" name="requiredhonorrank" value="<?php echo $result['requiredhonorrank'];?>"></td>
+                    <td colspan="2">RequiredDisenchantSkill<br><input type="text" name="RequiredDisenchantSkill" value="<?php echo $result['RequiredDisenchantSkill'];?>"></td>
+                    <td colspan="2">RequiredCityRank<br><input type="text" name="RequiredCityRank" value="<?php echo $result['RequiredCityRank'];?>"></td>
+                    <td colspan="2">requiredhonorrank<br><input type="text" name="requiredhonorrank" value="<?php echo $result['requiredhonorrank'];?>"></td>
                 </tr><tr>
                     <td colspan="2">ItemLevel<br><input type="text" name="ItemLevel" value="<?php echo $result['ItemLevel'];?>"></td>
-                    <td colspan="2">ReqLevel<br><input type="text" name="RequiredLevel" value="<?php echo $result['RequiredLevel'];?>"></td>
-                    <td colspan="2">ReqSkill<br><input type="text" name="RequiredSkill" value="<?php echo $result['RequiredSkill'];?>"></td>
-                    <td colspan="2">ReqSkillRank<br><input type="text" name="RequiredSkillRank" value="<?php echo $result['RequiredSkillRank'];?>"></td>
+                    <td colspan="2">RequiredLevel<br><input type="text" name="RequiredLevel" value="<?php echo $result['RequiredLevel'];?>"></td>
+                    <td colspan="2">RequiredSkill<br><input type="text" name="RequiredSkill" value="<?php echo $result['RequiredSkill'];?>"></td>
+                    <td colspan="2">RequiredSkillRank<br><input type="text" name="RequiredSkillRank" value="<?php echo $result['RequiredSkillRank'];?>"></td>
                     
                 </tr>
             </table>
@@ -156,7 +167,7 @@
                 <tr>
                     <td>itemset<br><input type="text" name="itemset" value="<?php echo $result['itemset'];?>"></td>
                     <td>bonding<br><input type="text" name="bonding" value="<?php echo $result['bonding'];?>"></td>
-                    <td>armor<br><input type="text" name="armor" value="<?php echo $result['armor'];?>"></td>
+                    <td>ArmorDmgMod<br><input type="text" name="ArmorDamageModifier" value="<?php echo $result['ArmorDamageModifier'];?>"></td>
                     <td>block<br><input type="text" name="block" value="<?php echo $result['block'];?>"></td>
                 </tr><tr>
                     <td>delay<br><input type="text" name="delay" value="<?php echo $result['delay'];?>"></td>
@@ -197,7 +208,6 @@
     <p>
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
-            
             <td>
                 <fieldset>
                     <legend>resistance</legend>
@@ -215,7 +225,7 @@
                         </table>
                 </fieldset>
             </td>
-
+            
             <td><!-- socket  -->
                 <fieldset>
                     <legend>socket</legend>
@@ -358,7 +368,7 @@
                                 
                             </tr><tr>
                                 
-                                <!-- <td>FlagsExtra<br/><input type="text" name="FlagsExtra" value="<?php //echo $result['FlagsExtra'];?>"></td> -->
+                                <td>ExtraFlags<br/><input type="text" name="ExtraFlags" value="<?php echo $result['ExtraFlags'];?>"></td>
                                 <td>ItemLimitCat<br/><input type="text" name="ItemLimitCategory" value="<?php echo $result['ItemLimitCategory'];?>"></td>
                                 <td>HolidayId<br/><input type="text" name="HolidayId" value="<?php echo $result['HolidayId'];?>"></td>
                             </tr>
