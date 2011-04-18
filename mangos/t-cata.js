@@ -32,20 +32,8 @@ function alertSize() {
 	return myHeight;
 }
 
-function sizeToMyContent( ifRef, setW, setH, fMargin ) { //alert(ifRef);
-		var ifDoc, margin = typeof fMargin === 'number' ? fMargin : 6; 
-		try { 
-			ifDoc = document.getElementById(ifRef).contentWindow.document.documentElement;
-			}
-		catch( e ) { 
-			ifDoc = null;
-			}		
-		if( ifDoc ) {    
-			if( setH ) {
-				document.getElementById(ifRef).height = ifDoc.scrollHeight + margin + "px"; 
-				}
-			if( setW ) {
-				document.getElementById(ifRef).width = ifDoc.scrollWidth + margin + "px";
-				}
-			}  
-		}
+function popUp(URL,h) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height="+h+",left = 320,top = 150');");
+}
