@@ -23,6 +23,6 @@
                                 ADD THESE "CNTBOX" FOR ADDING SECTIONS -->
                 <div class="CntBox">
                     <div class="CntHead"><div class="CntHeadTitle">
-						Server Authorization</div></div>
+						<?php echo $subheader;?></div></div>
                         <div class="CntFiller">
                             <div class="CntInfo">

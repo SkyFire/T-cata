@@ -77,9 +77,10 @@ function dropDown($array,$multi,$size,$name,$result)
 /**
  * USE THIS TO BUILD THE WEBPAGE
  * if_file = the iframe file to include
+ * subheader is the title on the subsection
  * 
  * */
-function build_page($main_view,$sub_menu)
+function build_page($main_view,$sub_menu,$subheader)
 {
     
     include('page.parts/header.php');

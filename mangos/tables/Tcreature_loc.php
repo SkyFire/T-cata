@@ -59,12 +59,32 @@
     <legend>Other Locations by guid</legend>
         <table>
             <tr>
-                <td>guid</td><td><td>map</td><td>posX</td><td>posY</td><td>posZ</td><td>Or</td>
-                <td>Eq</td><td>SpwnSec</td><td>spwndist</td><td>Hlth</td><td>DS</td><td>MvTp</td>
-                <td>Cmana</td><td>ph</td><td>mid</td>
+                <td>guid</td><td>map</td><td>posX</td><td>posY</td><td>posZ</td><td>Or</td>
+                <td>Eq</td><td>SpSec</td><td>spwdst</td><td>Hlth</td><td>DS</td><td>MvTp</td>
+                <td>mana</td><td>ph</td><td>mid</td>
             </tr>
             <?php
-                die("query $query");
-            ?>
+                $query = "SELECT * FROM `creature` WHERE `id` = ".$_REQUEST['npc'];
+                $sql = mysql_query($query);
+                while($result = mysql_fetch_array($sql))
+                {
+                    echo '<tr>
+                              <td width="10">'.$result['guid'].'</td>
+                              <td>'.$result['map'].'</td>
+                              <td>'.$result['position_x'].'</td>
+                              <td>'.$result['position_y'].'</td>
+                              <td>'.$result['position_z'].'</td>
+                              <td>'.$result['orientation'].'</td>
+                              <td>'.$result['equipment_id'].'</td>
+                              <td>'.$result['spawntimesecs'].'</td>
+                              <td>'.$result['spawndist'].'</td>
+                              <td>'.$result['curhealth'].'</td>
+                              <td>'.$result['DeathState'].'</td>
+                              <td>'.$result['MovementType'].'</td>
+                              <td>'.$result['curmana'].'</td>
+                              <td>'.$result['phaseMask'].'</td>
+                              <td>'.$result['modelid'].'</td>
+                         </tr>';
+                }?>
         </table>
 </fieldset>
