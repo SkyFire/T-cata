@@ -4,6 +4,7 @@
      * USING QUEST
      * */
     $result = quest($_REQUEST['quest']);
+    $quest_id = $result['entry'];
     
     if (isset($_POST['submit']))
     {
@@ -77,7 +78,7 @@
                                         <input class="inputbox"  type="text" value="<?php echo $result['Type'];?>" name="Type" >
                                     </td>
                                 </tr><tr>
-                                    <td class="tablefont" >QuestFlags<br/>
+                                    <td class="tablefont" ><a href="javascript:popUp('include/qcalc.php?quest=<?php echo $result['QuestFlags'];?>&quest=<?php echo $quest_id;?>&field=QuestFlags&array=quest_flags',800,400);">QuestFlags</a><br/>
                                         <input class="inputbox"  type="text" value="<?php echo $result['QuestFlags'];?>" name="QuestFlags" >
                                     </td>
                                 </tr><tr>

@@ -118,7 +118,7 @@
         "N/A"                                       => 0
     );
     
-    $questFlags = array(
+    $quest_flags = array(
         "AUTO_ACCEPT"                               =>524288,
         "OBJ_TEXT"                                  =>262144,
         "SPECIAL_ITEM"                              =>131072,
@@ -138,8 +138,7 @@
         "SHARABLE"                                  =>8,
         "EXPLORATION"                               =>4,
         "PARTY_ACCEPT"                              =>2,
-        "STAY_ALIVE"                                =>1,   
-        "NONE"                                      =>0           
+        "STAY_ALIVE"                                =>1          
 
     );
     

@@ -42,3 +42,5 @@
  UPDATE `item_template` SET `AllowableRace` = 1101 WHERE `entry` = 2888
 -- --Mon Apr 18 9:30:31 
  UPDATE `item_template` SET `BagFamily` = 16 WHERE `entry` = 2888
+-- --Mon Apr 18 10:20:28 
+ UPDATE `item_template` SET `AllowableRace` = -1 WHERE `entry` = 2888

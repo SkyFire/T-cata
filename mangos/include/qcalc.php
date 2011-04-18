@@ -3,17 +3,14 @@
     require('../init.php');
     include('arrays.php');
     
-    $item_id = $_REQUEST['item'];
+    $quest_id = $_REQUEST['quest'];
     $field_name = $_REQUEST['field'];
     $array = $_REQUEST['array'];
     
     switch ($array)
     {
-        case 'classes':
-            $array = $classes;
-            break;
-        case 'races':
-            $array = $races;
+        case 'quest_flags':
+            $array = $quest_flags;
             break;
         default:
             die("bug in switch calcl");
@@ -21,7 +18,7 @@
     }
     
     mysql_selectdb(SQL_WORLD_DATABASE);
-    $query = "SELECT * FROM `item_template` WHERE `entry` = $item_id";
+    $query = "SELECT * FROM `quest_template` WHERE `entry` = $quest_id";
     $sql = mysql_query($query) or die("bad query<br>$query<br>".mysql_error());
     $result = mysql_fetch_array($sql);
     $calc_result = $result[$field_name];
