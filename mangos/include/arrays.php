@@ -40,41 +40,42 @@
         "UNK_0x80"          =>128,          "SPELLTRIGGER"          =>64,
         "TOTEM"             =>32,           "DEPRECIATED_ITEM"      =>16,
         "UNK_0x08"          =>8,            "OPENABLE"              =>4,
-        "CONJURED"          =>2,            "BONDED"                =>1     
+        "CONJURED"          =>2,            "BONDED"                =>1,
+        "NONE"              =>0
         
     );// MAX FOR -1 16,777,215
     
     $races = array(
-        "SKELETON"                                  => 15,
-        "BROKEN"                                    => 14,
-        "NAGA"                                      => 13,
-        "FEL ORC"                                   => 12,
-        "DRAENEI"                                   => 11,
-        "BLOODELF"                                  => 10,
-        "GOBLIN"                                    => 9,
-        "TROLL"                                     => 8,
-        "GNOME"                                     => 7,
-        "TAUREN"                                    => 6,
-        "UNDEAD"                                    => 5,
-        "NIGHTELF"                                  => 4,
-        "DWARF"                                     => 3,
+        "SKELETON"                                  => 16384,
+        "BROKEN"                                    => 8192,
+        "NAGA"                                      => 4096,
+        "FEL ORC"                                   => 2048,
+        "DRAENEI"                                   => 1024,
+        "BLOODELF"                                  => 512,
+        "GOBLIN"                                    => 256,
+        "TROLL"                                     => 128,
+        "GNOME"                                     => 64,
+        "TAUREN"                                    => 32,
+        "UNDEAD"                                    => 16,
+        "NIGHTELF"                                  => 8,
+        "DWARF"                                     => 4,
         "ORC"                                       => 2,
         "HUMAN"                                     => 1
     );//MAX FOR -1 = 142
     
     $classes = array(
-        "DRUID"                                     => 11,
-        "UNK2"                                      => 10,
-        "WARLOCK"                                   => 9,
-        "MAGE"                                      => 8,
-        "SHAMAN"                                    => 7,
-        "UNK1"                                      => 6,
-        "PRIEST"                                    => 5,   
-        "ROGUE"                                     => 4,
-        "HUNTER"                                    => 3,
+        "DRUID"                                     => 1024,
+        "UNK2"                                      => 512,
+        "WARLOCK"                                   => 256,
+        "MAGE"                                      => 128,
+        "SHAMAN"                                    => 64,
+        "DEATH KNIGHT"                              => 32,
+        "PRIEST"                                    => 16,   
+        "ROGUE"                                     => 8,
+        "HUNTER"                                    => 4,
         "PALADIN"                                   => 2,
         "WARRIOR"                                   => 1
-    );// MAX FOR -1 = 66
+    );// MAX FOR -1 = 2047
     
     $sheath = array(
         "SHEILD"                                    => 7,

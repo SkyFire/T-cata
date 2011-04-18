@@ -10,6 +10,38 @@
     
     if (isset($_POST['submit']))
     {
+        
+        /* FUTURE TODO FOR DROPDOWN
+        /**
+         *FIX THE MULTI SELECT AND CORRECT THE POST FOR SQL
+         
+        if(isset($_POST['AllowableRace'])   ||
+           isset($_POST['AllowableClass'])  ||
+           isset($_POST['Flags'])
+           )
+        {
+            /**
+             * THE FOLLOWING WILL SET A SELECT ALL TO A -1
+             * FOR SQL PURPOSES
+             * */
+            
+         /*   
+            if (isset($_POST['AllowableRace']))
+            {
+                $_POST['AllowableRace'] = array_sum($_POST['AllowableRace']);
+                if($_POST['AllowableRace'] == array_sum($races)){$_POST['AllowableRace'] = -1;}
+            }
+            if (isset($_POST['AllowableClass']))
+            {
+                $_POST['AllowableClass'] = array_sum($_POST['AllowableClass']);
+                if($_POST['AllowableClass'] == array_sum($classes)){$_POST['AllowableClass'] = -1;}
+            }
+            if (isset($_POST['Flags'])){ $_POST['Flags'] = array_sum($_POST['Flags']);}
+            
+            
+        }
+            */
+            
         updateRecords($_POST,$result,SQL_WORLD_DATABASE,"item_template","entry",$item_id,"");
         $query = "SELECT * FROM `item_template` WHERE `entry` = $item_id";
         $sql = mysql_query($query) or die("Bad query<br/>$query<br/>".mysql_error());
@@ -30,62 +62,16 @@
                     <td>displayid<br><input type="text" name="displayid" value="<?php echo $result['displayid'];?>"></td>
                 </tr><tr>
                     <td colspan="2">description<br><input type="text" name="description" value="<?php echo $result['description'];?>" size="45"></td>
-                    <td>Quality<br>
-                        <select                                       name="Quality">
-                        <?php
-                            foreach($item_quality as $qualityName => $value){
-                                echo "<option value=\"$value\"";
-                                if($value == $result['Quality']){echo " selected=\"selected\" ";}
-                                echo ">$qualityName</option>";
-                            }
-                        ?>
-                
-                    </select>
-                    
-                     
-                     
-                     
+                    <td>Quality<br><?php dropDown($item_quality,0,0,"Quality",$result);?></td>
                      <td>Flags2<br/><input type="text" name="Flags2" value="<?php echo $result['Flags2'];?>"></td>
                 </tr><tr>
                      <td>BuyCount<br/><input type="text" name="BuyCount" value="<?php echo $result['BuyCount'];?>"></td>
                      <td>BuyPrice<br/><input type="text" name="BuyPrice" value="<?php echo $result['BuyPrice'];?>"></td>
                      <td>SellPrice<br/><input type="text" name="SellPrice" value="<?php echo $result['SellPrice'];?>"></td>
 
-                     <td>InventoryType<br/>
-                        <select                                            name="InventoryType">
-                        <option value="" selected="selected"></option>
-                        <?php
-                            foreach($inventory_type as $inventoryName => $value){
-                                echo "<option value=\"$value\"";
-                                if($value == $result['InventoryType']){echo " selected=\"selected\" ";}
-                                echo ">$inventoryName</option>";
-                            }
-                        ?>
-                        </select>
-                    </td>
-                </tr><tr>
-                        
-                     <td rowspan="2" colspan="2">Flags ( <?php echo $result['Flags'];?> )<br/>
-                        <input type="text" name="Flags" value="<?php echo $result['Flags'];?>"><br/>
-                        <select  multiple="multiple" size="5">
-                        <?php
-                            $tmpFlags = $result['Flags'];
-                        
-                            foreach($item_flags as $flagname => $value){
-                        
-                                echo "<option value=\"$value\"";
-                        
-                                if($value == $tmpFlags){
-                                    echo " selected=\"selected\" ";
-                                    $tmpFlags -= $value;
-                                    }
-                        
-                                echo ">$flagname</option>";
-                            }
-                        ?>
-                        </select>
-                     </td> 
-                     
+                     <td>InventoryType<br/><?php dropDown($inventory_type,0,0,"InventoryType",$result);?></td>
+                </tr><tr>                        
+                     <td rowspan="2" colspan="2">Flags ( <?php echo $result['Flags'];?> )<br/><input type="text" name="Flags" value="<?php echo $result['Flags'];?>"></td>
                      <td>Stackable<br><input type="text" name="stackable" value="<?php echo $result['stackable'];?>"></td>
                      <td>ContainerSlots<br><input type="text" name="ContainerSlots" value="<?php echo $result['ContainerSlots'];?>"></td>
                      <td>MaxCount<br><input type="text" name="maxcount" value="<?php echo $result['maxcount'];?>"></td>                                             
@@ -98,48 +84,9 @@
         <legend>Requirements</legend>
             <table>
                 <tr>
-                    <td rowspan="2" >AllowableRace<br/><input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"><br/>
-                        <!-- <input type="text" name="AllowableRace" value="<?php //echo $result['AllowableRace'];?>"><br/>-->
-                        
-                        <select multiple="multiple" size="5" ">
-                        <?php
-                            $tmpFlags = $result['AllowableRace'];
-                        
-                            foreach($races as $racename => $value){
-                        
-                                echo "<option value=\"$value\"";
-                        
-                                if($value >= $tmpFlags || $result['AllowableRace'] == -1){
-                                    echo " selected=\"selected\" ";
-                                    $tmpFlags -= $value;
-                                    }
-                        
-                                echo ">$racename</option>";
-                            }
-                        ?>
-                        </select>
-                     </td>
+                    <td rowspan="2" ><a href="javascript:popUp('include/calc.php?race=<?php echo $result['AllowableRace'];?>&item=<?php echo $item_id;?>&field=AllowableRace&array=races',800,400);">AllowableRace</a> <br/><input type="text" name="AllowableRace" value="<?php echo $result['AllowableRace'];?>"</td>
                     
-                    <td rowspan="2" >AllowableClass<br/>
-                        <input type="text" name="AllowableClass" value="<?php echo $result['AllowableClass'];?>"><br/>
-                        
-                        <select multiple="multiple" size="5">
-                        <?php
-                            $tmpFlags = $result['AllowableClass'];
-                        
-                            foreach($classes as $classname => $value){
-                        
-                                echo "<option value=\"$value\"";
-                        
-                                if($value == $tmpFlags || $result['AllowableClass'] == -1){
-                                    echo " selected=\"selected\" ";
-                                    $tmpFlags -= $value;
-                                    }
-                        
-                                echo ">$classname</option>";
-                            }
-                        ?>
-                        </select>
+                    <td rowspan="2" ><a href="javascript:popUp('include/calc.php?class=<?php echo $result['AllowableClass'];?>&item=<?php echo $item_id;?>&field=AllowableClass&array=classes',800,300);">AllowableClass</a><br/><input type="text" name="AllowableClass" value="<?php echo $result['AllowableClass'];?>"</td>
                     </td>
                     <td colspan="2">RequiredReputationFaction<br><input type="text" name="RequiredReputationFaction" value="<?php echo $result['RequiredReputationFaction'];?>"></td>
                     <td colspan="2">RequiredReputationRank<br><input type="text" name="RequiredReputationRank" value="<?php echo $result['RequiredReputationRank'];?>"></td>
@@ -296,44 +243,12 @@
                                 <td>RandomProperty<br/><input type="text" name="RandomProperty" value="<?php echo $result['RandomProperty'];?>"></td>
                             </tr><tr>
                                 <td>FoodType<br/><input type="text" name="FoodType" value="<?php echo $result['FoodType'];?>"></td>
-                                
-                                
-                                <td>sheath<br/>
-                                    
-                                    <select name="sheath">
-                                    <?php
-                                        foreach($sheath as $name => $value){ ?>
-                                            <option value="<?php echo $value."\"";
-                                            
-                                            if($value == $result['sheath']){
-                                                echo " selected=\"selected\"";
-                                            }
-                                            echo ">".$name;
-                                        }
-                                    ?>
-                                    
-                                    </select>
-                                </td>
-                                
+                                <td>sheath<br/><?php dropDown($sheath,0,0,"sheath",$result);?></td>
                                 <td>LanguageID<br/><input type="text" name="LanguageID" value="<?php echo $result['LanguageID'];?>"></td>
                                 
                             </tr><tr>
                                 
-                                <td colspan="2">BagFamily<br/>
-                                    
-                                    <select name="BagFamily">
-                                    <?php
-                                        foreach($bagfamily as $name => $value){ ?>
-                                            <option value="<?php echo $value."\"";
-                                            
-                                            if($value == $result['BagFamily']){
-                                                echo " selected=\"selected\"";
-                                            }
-                                            echo ">".$name;
-                                        }?>
-                                    </select>
-                                </td>
-                                
+                                <td colspan="2">BagFamily<br/><?php dropDown($bagfamily,0,0,"BagFamily",$result);?></td>
                                 
                             </tr><tr>
                                 
@@ -350,22 +265,7 @@
                                 <td>ScriptName<br/><input type="text" name="ScriptName" value="<?php echo $result['ScriptName'];?>"></td>
                                 <td>TotemCategory<br/><input type="text" name="TotemCategory" value="<?php echo $result['TotemCategory'];?>"></td>
                                 
-                                <td>material<br/>
-                                    
-                                    <select name="PageMaterial">
-                                    <?php
-                                        foreach($pagematerial as $name => $value){ ?>
-                                            <option value="<?php echo $value."\"";
-                                            
-                                            if($value == $result['PageMaterial']){
-                                                echo " selected=\"selected\"";
-                                            }
-                                            echo ">".$name;
-                                        }?>
-                                    </select>
-                                </td>
-                                
-                                
+                                <td>material<br/><?php dropDown($pagematerial,0,0,"PageMaterial",$result);?></td>
                             </tr><tr>
                                 
                                 <td>ExtraFlags<br/><input type="text" name="ExtraFlags" value="<?php echo $result['ExtraFlags'];?>"></td>

@@ -32,8 +32,8 @@ function alertSize() {
 	return myHeight;
 }
 
-function popUp(URL,h) {
+function popUp(URL,w,h) {
 day = new Date();
 id = day.getTime();
-eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height="+h+",left = 320,top = 150');");
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=0,width="+w+",height="+h+",left = 320,top = 150');");
 }

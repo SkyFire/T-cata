@@ -1,4 +1,70 @@
 <?php
+    include('arrays.php');
+    
+function err($query,$mysqlerr)
+{
+    die("<p/>Bad query:<br/>$query<p/>$mysqlerr");
+}
+
+/**
+ * MULTI : 1=yes, 0=no Used for Multi Select menus
+ * SIZE : If multi, size shown, if MULIT=0, this is ignored
+ * NAME: var for editing.
+ * RESULT: original source, usually $RESULT
+ * */
+function dropDown($array,$multi,$size,$name,$result)
+{
+    /**
+     *Format the select option
+     */
+    echo "<select name=\"$name";
+    
+    if ($multi == 1)
+    {
+        echo "[]\" size=\"$size\" multiple=\"multiple\">";
+    }
+    else
+    {
+        echo "\">\n";
+    }
+    
+    if($multi == 0)
+    {
+        /**
+        * Loop through non-multi array.
+        * */
+        foreach($array as $field => $value)
+        {
+            echo "<option value=\"$value\"";
+            if($value == $result[$name]){echo " selected=\"selected\" ";}
+            echo ">$field</option>\n";
+        }    
+    }
+    else
+    {
+        /**
+         * Loop through a multi-array
+         * */
+        
+        ## Save the current value
+        $value_count        = $result[$name];
+        ## SOME SELECT ALLS = -1, SO NEED TO OFFSET THAT
+        if ($value_count == -1){ $value_count = max($array);}
+        
+        foreach($array as $field => $value)
+        {
+            echo "<option value=\"$value\"";
+            if($value == $value_count)
+            {
+                echo " selected=\"selected\" ";
+                $value_count -= $value_count;
+            }
+            echo ">$field</option>\n";
+        }
+    }
+    echo "</select>\n";
+    
+}
 
 /**
  * USE THIS TO BUILD THE WEBPAGE
@@ -98,34 +164,14 @@ function updateRecords($userData,$result,$database,$table,$where_clause,$where_r
             $field != "XXX" &&
             $field != "submit")
         {
-              /* 
-            //SPECIAL HANDLING OF MULTI SELECT OPTIONS
-            // - RACES
-            // TODO: USE A SWITCH HERE ON $FIELD
-            if($field == "AllowableRace")
+           
+            if($userInfo != $result[$field])
             {
-                //SEE IF TOTAL IS 142 OR SUM OF ALL RACES, IF SO SET VALUE
-                //TO -1
-                if(array_sum($userInfo) >= 142){
-                    $userInfo = -1;
-                    $query = "UPDATE `$table` SET `$field` = -1 WHERE `$where_clause` = $where_reference";
-                    $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
-                }else{
-                    $query = "UPDATE `$table` SET `$field` = ".array_sum($userInfo)." WHERE `$where_clause` = $where_reference";
-                    $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
-                        
-                }
-            }else{
-              */
-                //ONLY UPDATE IF SOMETHING CHANGED
-                if($userInfo != $result[$field])
-                {
-                    $query = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $where_reference";
-                    $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
-                    saveSQL($query,$table.'_update.sql',$remarks);
-                }
-            /*}*/
-        }
-    }    
+                $query = "UPDATE `$table` SET `$field` = $userInfo WHERE `$where_clause` = $where_reference";
+                $sql = mysql_query($query) or die ("Bad Query:$query<br>".mysql_error());
+                saveSQL($query,$table.'_update.sql',$remarks);
+            }## CHANGE
+        }##USERINFO > ""
+    }##FOR EACH    
 }
 ?>
